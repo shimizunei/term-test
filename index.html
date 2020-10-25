@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/index.css">
 
+    <script src="https://cdn.staticfile.org/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script src="/js/index.js"></script>
+
 </head>
 <body></body>
 
@@ -21,32 +24,23 @@
             <div class="body">
                 <form action="">
                     <div class="user">
-
                         <label for="user">用户名</label>
-                        <input type="text" name="user" id="user">
+                        <input type="text" name="user" id="user" required="required">
                     </div>
-                    <div class="password close">
+                    <div class="password">
                         <label for="password">密码</label>
-                        <input type="password" name="password" id="password">
+                        <input type="password" name="password" id="password" required="required" >
                         <i></i>
                     </div>
-                    <input type="submit" name="submit" value="登录">
+                    <div class="code">
+                        <label for="password">验证码</label>
+                        <input type="text" name="code" id="code" required="required" autocomplete="off">
+                        <img src="image_code.php" alt="">
+                    </div>
+                    <input type="submit" name="submit"id="submit" value="登录">
                 </form>
             </div>
         </div>
     </div>
-    </div>
-
-
-
-        <!-- 
-    <script>
-    var img = document.querySelector('img');
-    console.log(img.src);
-    img.addEventListener("click",function(){
-        // 刷新验证码 通过刷新src 加后缀浏览器才会刷新
-        img.src= 'image_code.php' + '?nowtime=' + new Date().getTime();
-    });
-    </script> -->
 </body>
 </html>

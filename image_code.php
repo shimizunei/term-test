@@ -1,7 +1,7 @@
 <?php
 getCode();
 // 发送cookie 用于验证验证码 
-setcookie("id",$code,time()+180);
+setcookie("codeId",$code,time()+180);
 function getCode(){
     $width = 120;
     $height = 40;
