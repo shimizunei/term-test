@@ -74,8 +74,9 @@
 .login .box .body .code{
     position: absolute;  
     width: 100%;
-    bottom: 170px;
+    /* bottom: 170px; */
 }
+ 
 .success::after,
 .failure::after{
     position: absolute;
