@@ -24,12 +24,17 @@ window.onload = function () {
     });
     codeInput.addEventListener("blur",function(){
        var codeId =$.cookie("codeId");
-       console.log(this.value);
-       if(codeId===this.value){
+       if(codeId===formatStr(this.value)){
            code.className="code success";
        }
        else{
             code.className="code failure";
        }
     })
+    // 格式化字符串
+    function formatStr(str){
+        // 忽略大小写 前后空字符
+        return str.trim().toLowerCase();
+    }
 }
+
