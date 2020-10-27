@@ -1,4 +1,5 @@
 <?php
+header("content-type: image/jpeg");
 getCode();
 // 发送cookie 用于验证验证码 
 setcookie("codeId",$code,time()+180);
@@ -30,7 +31,7 @@ function getCode(){
     imagefill($img, 0, 0, $colorBg);
     imagerectangle($img, 0, 0, $width - 1, $height - 1, $colorBoder);
     // 填写验证码
-    imagettftext($img,30,rand(-10,10),rand(10,20),rand(30,35),$colorBoder,dirname(__FILE__).'\fonts\Freezed.ttf',$code);
+    imagettftext($img,30,rand(-10,10),rand(10,20),rand(30,35),$colorBoder,dirname(__FILE__).'./fonts/Freezed.ttf',$code);
     // 噪点
     for ($i = 0; $i < 200; $i++) {
         imagesetpixel($img, rand(0, $width - 1), rand(0, $height - 1), $colorBoder);

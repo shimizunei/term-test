@@ -46,13 +46,22 @@
 .login .box .body div {
     position: relative;
 }
-.login .box .body i{
+.clear{
     position: absolute;
     top: 15px;
     right: 40px;
     font-family: icomoon;
     color: #1a8cfe;
-    font-size: 20px;
+    font-size: 16px;
+    cursor: pointer; 
+}
+.login .box .body .password .d-n-swithch{
+    position: absolute;
+    top: 15px;
+    right: 70px;
+    font-family: icomoon;
+    color: #1a8cfe;
+    font-size: 16px;
     cursor: pointer;
 }
 .login .box .body label {
@@ -66,39 +75,25 @@
     display: block;
     width: 282px;
     height: 53px;   
-    margin: 45px auto;
-    font-size: 18px;
+    margin: 40px auto;
+    font-size: 14px;
     line-height: 53px;
     border-bottom: 2px solid #38a1ff;
 }
+
 .login .box .body .code{
     position: absolute;  
     width: 100%;
-    bottom: 170px;
+    bottom: 190px;
 }
  
-.success::after,
-.failure::after{
-    position: absolute;
-    left: 15px;
-    top: 25px;   
-    font-family: icomoon;
-    font-size: 14px;
-}
-.success::after{
-    color: #1a8cfe;
-    content: "\ea10";
-}
-.failure::after{
-    color: #bd2d30;
-    content: "\ea0f";
-}
 .login .box .body #code{
     display: inline;
     width: 160px;
     margin: 0;
     margin-left: 39px;
 }
+
 .login .box .body #submit {
     width: 228px;
     height: 80px;
@@ -106,7 +101,7 @@
     border-radius: 40px;
     font-size: 24px;
     color: #ffffff;
-    margin-top: 140px;
+    margin-top: 130px;
 }
 .login .box .body #submit:hover {
     background: #2064b7;

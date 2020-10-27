@@ -1,9 +1,7 @@
 
 <?php
 
-require_once './config.php';
 // 连接数据库 
-connectDb('bipt');
 function connectDb($datebase,$host = DB_HOST, $user = DB_USER, $password = DB_PASSWORD,$PORT=DB_PORT)
 {
     $link = mysqli_connect($host, $user, $password, $datebase,$PORT);

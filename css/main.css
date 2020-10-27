@@ -1,0 +1,61 @@
+
+.header{
+    position: relative;
+    height: 69px;
+    background: #ffffff;
+    box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.15); 
+}
+.header .title{
+    position: absolute;
+    width: 299px;
+    height: 100%;
+    left: 20px;
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 69px;
+}
+.header .title a{
+    color: #272727;
+}
+.header .name{
+    position: absolute;
+    float: left;
+    width: 245px;
+    height: 69px;
+    left: 300px;
+    font-size: 24px;
+    text-align: center;
+    color: #27274a;
+    line-height: 69px;
+}
+.header .message{
+    position: absolute;
+    float: right;
+    right: 20px;
+    font-family: icomoon;
+    font-size: 24px;
+    line-height: 69px;
+}
+.sidevar{
+    /* position: relative; */
+    position: absolute;
+    top: 69px;
+    bottom: 0px;
+    left: 0px;
+    width: 160px;
+    /* margin-bottom: 69px; */
+    background: #27274a;
+}
+.sidevar .turn{
+    font-family: icomoon;
+    width: 160px;
+    height: 40px;
+    padding: 5px 10px;
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 40px;
+}
+.sidevar .turn i{
+    float: right;
+}
