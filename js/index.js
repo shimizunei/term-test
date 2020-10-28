@@ -47,7 +47,7 @@ window.onload = function () {
         } else {
             codeInput.value = "";
             codeInput.placeholder = "验证码错误 请重新输入";
-            codeInput.style.borderBottom = "2px solid #bd2d30";           
+            codeInput.style.borderBottom = "2px solid #bd2d30";
         }
     })
     // 格式化字符串
@@ -55,7 +55,8 @@ window.onload = function () {
         // 忽略大小写 前后空字符
         return str.trim().toLowerCase();
     }
-    function refreshCode(){
+
+    function refreshCode() {
         codeInput.value = "";
         codeInput.style.borderBottom = "2px solid #38a1ff";
     }

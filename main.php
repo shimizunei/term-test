@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="/css/common.css">
     <script src="/js/common.js"></script>
 </head>
+
 <body>
     <!-- 头部 -->
     <div class="header">
@@ -21,30 +23,190 @@
         <div class="tables">
             <div class="main">
                 <div class="inner">
-                    <a href=""><i></i><h4>首页</h4></a>
+                    <a href=""><i></i>
+                        <h4>首页</h4>
+                    </a>
                 </div>
             </div>
             <div class="addform">
                 <div class="inner open">
-                    <a href=""><i></i><h4>填写表单</h4></a>
+                    <a href=""><i></i>
+                        <h4>填写表单</h4>
+                    </a>
                     <div class="sideopen">
-                        
+                        <div class="sideopen-inner">
+                            <dl>
+                                <dt>
+                                    <h4>组织管理</h4>
+                                </dt>
+                                <dd><a href="#">社区减灾组织管理机构</a></dd>
+                                <dd><a href="">社区减灾工作制度</a></dd>
+                                <dd><a href="">具体改进措施</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <h4>灾害风险评估</h4>
+                                </dt>
+                                <dd><a href="#">灾害风险隐患清单</a></dd>
+                                <dd><a href="">社区灾害脆弱人群清单</a></dd>
+                                <dd><a href="">社区灾害风险地图</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <h4>应急预案</h4>
+                                </dt>
+                                <dd><a href="#">综合应急预案</a></dd>
+                                <dd><a href="">应急预案修订记录</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <h4>应急演习</h4>
+                                </dt>
+                                <dd><a href="#">应急演练情况记录表</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <h4>宣传教育</h4>
+                                </dt>
+                                <dd><a href="#">组织减灾宣传教育</a></dd>
+                                <dd><a href="">开展防灾减灾活动</a></dd>
+                                <dd><a href="">防灾减灾培训</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <h4>应急避难场所</h4>
+                                </dt>
+                                <dd><a href="#">标志/标识数量统计表</a></dd>
+                                <dd><a href="">避难所平面图</a></dd>
+                                <dd><a href="">应急疏散图</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <h4>应急储备</h4>
+                                </dt>
+                                <dd><a href="#">社区应急物资储备</a></dd>
+                                <dd><a href="">应急物资社会储备</a></dd>
+                                <dd><a href="">社区灾害预警系统</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <h4>志愿者队伍建设</h4>
+                                </dt>
+                                <dd><a href="#">志愿者队伍参与活动</a></dd>
+                                <dd><a href="">社区主要机构参与活动</a></dd>
+                                <dd><a href="">社会组织参与活动</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <h4>工作经费</h4>
+                                </dt>
+                                <dd><a href="#">工作经费</a></dd>
+                                <dd><a href="">灾害保险</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <h4>创建特色</h4>
+                                </dt>
+                                <dd><a href="#">创建特色撰写要求</a></dd>
+                            </dl>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="conform">
                 <div class="inner open">
-                    <a href=""><i></i><h4>管理表单</h4></a>
+                    <a href=""><i></i>
+                        <h4>管理表单</h4>
+                    </a>
                     <div class="sideopen">
+                        <div class="sideopen-inner">
+                            <dl>
+                                <dt>
+                                    <h4>组织管理</h4>
+                                </dt>
+                                <dd><a href="#">社区减灾组织管理机构</a></dd>
+                                <dd><a href="">社区减灾工作制度</a></dd>
+                                <dd><a href="">具体改进措施</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <h4>灾害风险评估</h4>
+                                </dt>
+                                <dd><a href="#">灾害风险隐患清单</a></dd>
+                                <dd><a href="">社区灾害脆弱人群清单</a></dd>
+                                <dd><a href="">社区灾害风险地图</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <h4>应急预案</h4>
+                                </dt>
+                                <dd><a href="#">综合应急预案</a></dd>
+                                <dd><a href="">应急预案修订记录</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <h4>应急演习</h4>
+                                </dt>
+                                <dd><a href="#">应急演练情况记录表</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <h4>宣传教育</h4>
+                                </dt>
+                                <dd><a href="#">组织减灾宣传教育</a></dd>
+                                <dd><a href="">开展防灾减灾活动</a></dd>
+                                <dd><a href="">防灾减灾培训</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <h4>应急避难场所</h4>
+                                </dt>
+                                <dd><a href="#">标志/标识数量统计表</a></dd>
+                                <dd><a href="">避难所平面图</a></dd>
+                                <dd><a href="">应急疏散图</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <h4>应急储备</h4>
+                                </dt>
+                                <dd><a href="#">社区应急物资储备</a></dd>
+                                <dd><a href="">应急物资社会储备</a></dd>
+                                <dd><a href="">社区灾害预警系统</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <h4>志愿者队伍建设</h4>
+                                </dt>
+                                <dd><a href="#">志愿者队伍参与活动</a></dd>
+                                <dd><a href="">社区主要机构参与活动</a></dd>
+                                <dd><a href="">社会组织参与活动</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <h4>工作经费</h4>
+                                </dt>
+                                <dd><a href="#">工作经费</a></dd>
+                                <dd><a href="">灾害保险</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <h4>创建特色</h4>
+                                </dt>
+                                <dd><a href="#">创建特色撰写要求</a></dd>
+                            </dl>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="standare">
                 <div class="inner">
-                    <a href=""><i></i><h4>减灾社区标准</h4></a>
+                    <a href=""><i></i>
+                        <h4>减灾社区标准</h4>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>
