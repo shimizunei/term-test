@@ -3,6 +3,7 @@ window.onload = function () {
 
     var clear = document.querySelectorAll('.clear');
     // 清空输入
+    console.log(clear);
     clear.forEach(function (element) {
         element.addEventListener('click', function () {
             this.previousElementSibling.value = "";
@@ -10,17 +11,17 @@ window.onload = function () {
     });
 
     var dNSwithch = document.querySelector('.d-n-swithch');
-    var flag_password = true;
+    var passwordFlag = true;
     // 显示隐藏密码
     dNSwithch.addEventListener("click", function () {
-        if (flag_password) {
+        if (passwordFlag) {
             this.innerHTML = "";
             this.previousElementSibling.previousElementSibling.type = "text";
-            flag_password = false;
+            passwordFlag = false;
         } else {
             this.innerHTML = "";
             this.previousElementSibling.previousElementSibling.type = "password";
-            flag_password = true;
+            passwordFlag = true;
         }
     })
     var code = document.querySelector('.code');

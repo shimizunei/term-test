@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>主页</title>
     <link rel="stylesheet" href="/css/base.css">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <script src="/js/common.js"></script>
 </head>
 <body>
     <!-- 头部 -->
@@ -18,10 +19,31 @@
     <div class="sidevar">
         <div class="turn"><i></i></div>
         <div class="tables">
-            <div class="main"></div>
-            <div class="addform"></div>
-            <div class="conform"></div>
-            <div class="standare"></div>
+            <div class="main">
+                <div class="inner">
+                    <a href=""><i></i><h4>首页</h4></a>
+                </div>
+            </div>
+            <div class="addform">
+                <div class="inner open">
+                    <a href=""><i></i><h4>填写表单</h4></a>
+                    <div class="sideopen">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="conform">
+                <div class="inner open">
+                    <a href=""><i></i><h4>管理表单</h4></a>
+                    <div class="sideopen">
+                    </div>
+                </div>
+            </div>
+            <div class="standare">
+                <div class="inner">
+                    <a href=""><i></i><h4>减灾社区标准</h4></a>
+                </div>
+            </div>
         </div>
     </div>
 </body>
