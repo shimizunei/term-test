@@ -1,3 +1,6 @@
+body{
+    background-color: #f5f7fa;
+}
 .header {
     position: relative;
     height: 69px;
@@ -42,13 +45,11 @@
 }
 
 .sidevar {
-    /* position: relative; */
     position: absolute;
     top: 69px;
     bottom: 0px;
-    left: 0px;
+    /* left: 0px; */
     width: 160px;
-    /* margin-bottom: 69px; */
     background: #27274a;
     transition: all .4s;
 }
@@ -67,52 +68,54 @@
     cursor: pointer;
 }
 
-.sidevar .tables>div {
+.sidevar .tables>div,
+.sidevar .logout {
     position: relative;
     width: 160px;
     height: 40px;
     padding: 5px 8px;
     line-height: 30px;
-    font-size: 12px;
     border-bottom: 1px solid #5a5a67;
     transition: all .4s;
 }
 
-.sidevar .tables .inner {
+.sidevar .tables .inner,
+.sidevar .logout .inner:hover {
     background-color: #1a8cfe;
     border-radius: 6px;
 }
 
-.sidevar .tables .inner>a {
+.sidevar .tables .inner>a,
+.sidevar .logout .inner>a {
     height: 30px;
     position: relative;
     display: block;
 }
 
-.sidevar .tables .inner>a i {
-    position: absolute;
-    left: 12px;
+.sidevar .tables .inner>a i,
+.sidevar .logout .inner>a i  {
+    margin-left: 12px;
 }
 
-.sidevar .tables .inner>a h4 {
+.sidevar .tables .inner>a h4,
+.sidevar .logout .inner>a h4 {
     position: absolute;
-    right: 30px;
     width: 80px;
+    left: 30px;
     display: inline;
     text-align: center;
 }
 
-.sidevar .tables .open:hover .sideopen {  
+.sidevar .tables .hover:hover .sideopen {  
     width: 832px;
     height: 345px;
 }
-.sidevar .tables .open:hover .sideopen .sideopen-inner{
+.sidevar .tables .hover:hover .sideopen .sideopen-inner{
     display: block;
 }
 .sidevar .tables .open>a::after {
-    position: absolute;
-    right: 12px;
-    content: "";
+    margin-left: 92px;
+    content: "\e913";
     font-family: icomoon;
 }
 
@@ -163,4 +166,19 @@
     height: 40px;
     line-height: 40px;
     color: #777777;
+}
+.sidevar .sideopen dd a:hover{
+    color: #1a8cfe;
+}
+.sidevar .logout {
+    position: absolute;
+    bottom: 0;
+    border: 0;
+}
+.contain{
+    position: absolute;
+    left: 160px;
+    right: 0;
+    top: 69px;
+    bottom: 0;
 }

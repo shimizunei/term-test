@@ -38,7 +38,7 @@ window.onload = function () {
     setInterval(function () {
         codeImg.src = 'image_code.php' + '?nowtime=' + new Date().getTime();
         refreshCode();
-        codeInput.placeholder = "验证码过期 请重新输入验证码";
+        codeInput.placeholder = "验证码过期 请重新输入";
     }, 180000);
     // 离开验证码输入框 检测输入
     codeInput.addEventListener("blur", function () {

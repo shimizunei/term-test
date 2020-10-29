@@ -7,6 +7,7 @@
     <title>主页</title>
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/main.css">
     <script src="/js/common.js"></script>
 </head>
 
@@ -15,24 +16,30 @@
     <div class="header">
         <div class="title"><a href="#">基层社区防灾减灾一掌通</a></div>
         <div class="name">北京石油化工学院</div>
+        <!-- 消息通知 -->
         <div class="message"><i></i></div>
     </div>
     <!-- 侧边栏 -->
     <div class="sidevar">
+        <!-- 收起 展开 按钮-->
         <div class="turn"><i></i></div>
+        <!-- 侧边标题 -->
         <div class="tables">
+            <!-- 主页 -->
             <div class="main">
                 <div class="inner">
-                    <a href=""><i></i>
+                    <a href="" disabled="disabled"><i></i>
                         <h4>首页</h4>
                     </a>
                 </div>
             </div>
-            <div class="addform">
+            <!-- 填写表单 -->
+            <div class="addform hover">
                 <div class="inner open">
-                    <a href=""><i></i>
+                    <a href="" style="pointer-events: none;"><i></i>
                         <h4>填写表单</h4>
                     </a>
+                    <!-- 展开栏 -->
                     <div class="sideopen">
                         <div class="sideopen-inner">
                             <dl>
@@ -113,11 +120,13 @@
                     </div>
                 </div>
             </div>
-            <div class="conform">
+            <!-- 管理表单 -->
+            <div class="conform hover">
                 <div class="inner open">
-                    <a href=""><i></i>
+                    <a href="" style="pointer-events: none;"><i></i>
                         <h4>管理表单</h4>
                     </a>
+                    <!-- 展开栏 -->
                     <div class="sideopen">
                         <div class="sideopen-inner">
                             <dl>
@@ -198,6 +207,7 @@
                     </div>
                 </div>
             </div>
+            <!-- 减灾社区标准 -->
             <div class="standare">
                 <div class="inner">
                     <a href=""><i></i>
@@ -206,7 +216,57 @@
                 </div>
             </div>
         </div>
+        <!-- 退出 按钮 -->
+        <div class="logout">
+            <div class="inner">
+                <a href="" disabled="disabled"><i></i>
+                    <h4>退出系统</h4>
+                </a>
+            </div>
+        </div>
     </div>
+    <div class="contain">
+        <div>
+            <div class="big up">
+                <div class="title"><i></i><h4>填写表单</h4></div>
+                <div class="body .clearfix">
+                    <ul>
+                        <li><a href=""><h4>组织管理</h4></a></li>
+                        <li><a href=""><h4>灾害风险评估</h4></a></li>
+                        <li><a href=""><h4>应急预案</h4></a></li>
+                        <li><a href=""><h4>应急演练</h4></a></li>
+                        <li><a href=""><h4>宣传教育</h4></a></li>
+                        <li><a href=""><h4>应急避难场所</h4></a></li>
+                        <li><a href=""><h4>应急储备</h4></a></li>
+                        <li><a href=""><h4>志愿者队伍建设</h4></a></li>
+                        <li><a href=""><h4>工作经费</h4></a></li>
+                        <li><a href=""><h4>创建特色</h4></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="big down">
+                <div class="title"><i></i><h4>管理表单</h4></div>
+                <div class="body">
+                    <ul>
+                        <li><a href=""><h4>组织管理</h4></a></li>
+                        <li><a href=""><h4>灾害风险评估</h4></a></li>
+                        <li><a href=""><h4>应急预案</h4></a></li>
+                        <li><a href=""><h4>应急演练</h4></a></li>
+                        <li><a href=""><h4>宣传教育</h4></a></li>
+                        <li><a href=""><h4>应急避难场所</h4></a></li>
+                        <li><a href=""><h4>应急储备</h4></a></li>
+                        <li><a href=""><h4>志愿者队伍建设</h4></a></li>
+                        <li><a href=""><h4>工作经费</h4></a></li>
+                        <li><a href=""><h4>创建特色</h4></a></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 </body>
 
 </html>
