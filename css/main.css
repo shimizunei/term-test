@@ -4,13 +4,21 @@
     bottom: 25px;
     right: 50px;
     left: 50px;
+    z-index: -1;
+}
+.up{
+    top: 0;
+}
+.down{
+    bottom: 0;
 }
 .contain .big{
-    float: left;
-    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 280px;
     background-color: #fff;
     padding: 20px 35px;
-    margin-bottom: 30px;
 }
 .contain .big .title{
     height: 46px;
@@ -21,17 +29,23 @@
     margin-left: 0px;
     display: inline;
 }
+.contain .big .body{
+    width: 1000px;
+}
 .contain .big .body a{
     float: left;
     width: 160px;
     height: 60px;
     margin-top: 30px;
-    margin-right: 25px;
+    margin-right: 20px;
     font-size: 20px;
     line-height: 60px;
     display: block;
     color: #777777;
     border-left: 3px solid #1a8cfe;
+    overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 .contain .big .body a:hover{
     color: #1a8cfe;

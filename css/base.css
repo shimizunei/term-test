@@ -78,6 +78,12 @@ body {
 .none {
     display: none
 }
+/* 超出标签的元素就出现省略号 */
+.ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
 
 /* 清除浮动 */
 .clearfix:after {

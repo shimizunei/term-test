@@ -229,7 +229,7 @@
         <div>
             <div class="big up">
                 <div class="title"><i></i><h4>填写表单</h4></div>
-                <div class="body .clearfix">
+                <div class="body">
                     <ul>
                         <li><a href=""><h4>组织管理</h4></a></li>
                         <li><a href=""><h4>灾害风险评估</h4></a></li>

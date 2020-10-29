@@ -166,6 +166,9 @@ body{
     height: 40px;
     line-height: 40px;
     color: #777777;
+    overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 .sidevar .sideopen dd a:hover{
     color: #1a8cfe;
