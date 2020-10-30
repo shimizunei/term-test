@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION['admin'])){
+    Header("Location:/index.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +21,15 @@
     <!-- 头部 -->
     <div class="header">
         <div class="title"><a href="#">基层社区防灾减灾一掌通</a></div>
-        <div class="name">北京石油化工学院</div>
+        <div class="name">
+            <?php
+            if (isset($_SESSION['username'])) {
+                echo $_SESSION['username'];
+            } else {
+                echo "";
+            }
+            ?>
+        </div>
         <!-- 消息通知 -->
         <div class="message"><i></i></div>
     </div>
@@ -217,52 +231,100 @@
             </div>
         </div>
         <!-- 退出 按钮 -->
-        <div class="logout">
-            <div class="inner">
-                <a href="" disabled="disabled"><i></i>
-                    <h4>退出系统</h4>
-                </a>
+        <form action="/login_temp.php">
+            <div class="logout">
+                <div class="inner">
+                    <label for="logout"><i></i>
+                        <h4>退出系统</h4>
+                    </label>
+                    <input type="submit" id="logout" name="logout" value="">
+                </div>
             </div>
-        </div>
+        </form>
     </div>
+    <!-- 内容 -->
     <div class="contain">
         <div>
             <div class="big up">
-                <div class="title"><i></i><h4>填写表单</h4></div>
+                <div class="title"><i></i>
+                    <h4>填写表单</h4>
+                </div>
                 <div class="body">
                     <ul>
-                        <li><a href=""><h4>组织管理</h4></a></li>
-                        <li><a href=""><h4>灾害风险评估</h4></a></li>
-                        <li><a href=""><h4>应急预案</h4></a></li>
-                        <li><a href=""><h4>应急演练</h4></a></li>
-                        <li><a href=""><h4>宣传教育</h4></a></li>
-                        <li><a href=""><h4>应急避难场所</h4></a></li>
-                        <li><a href=""><h4>应急储备</h4></a></li>
-                        <li><a href=""><h4>志愿者队伍建设</h4></a></li>
-                        <li><a href=""><h4>工作经费</h4></a></li>
-                        <li><a href=""><h4>创建特色</h4></a></li>
+                        <li><a href="">
+                                <h4>组织管理</h4>
+                            </a></li>
+                        <li><a href="">
+                                <h4>灾害风险评估</h4>
+                            </a></li>
+                        <li><a href="">
+                                <h4>应急预案</h4>
+                            </a></li>
+                        <li><a href="">
+                                <h4>应急演练</h4>
+                            </a></li>
+                        <li><a href="">
+                                <h4>宣传教育</h4>
+                            </a></li>
+                        <li><a href="">
+                                <h4>应急避难场所</h4>
+                            </a></li>
+                        <li><a href="">
+                                <h4>应急储备</h4>
+                            </a></li>
+                        <li><a href="">
+                                <h4>志愿者队伍建设</h4>
+                            </a></li>
+                        <li><a href="">
+                                <h4>工作经费</h4>
+                            </a></li>
+                        <li><a href="">
+                                <h4>创建特色</h4>
+                            </a></li>
                     </ul>
                 </div>
             </div>
             <div class="big down">
-                <div class="title"><i></i><h4>管理表单</h4></div>
+                <div class="title"><i></i>
+                    <h4>管理表单</h4>
+                </div>
                 <div class="body">
                     <ul>
-                        <li><a href=""><h4>组织管理</h4></a></li>
-                        <li><a href=""><h4>灾害风险评估</h4></a></li>
-                        <li><a href=""><h4>应急预案</h4></a></li>
-                        <li><a href=""><h4>应急演练</h4></a></li>
-                        <li><a href=""><h4>宣传教育</h4></a></li>
-                        <li><a href=""><h4>应急避难场所</h4></a></li>
-                        <li><a href=""><h4>应急储备</h4></a></li>
-                        <li><a href=""><h4>志愿者队伍建设</h4></a></li>
-                        <li><a href=""><h4>工作经费</h4></a></li>
-                        <li><a href=""><h4>创建特色</h4></a></li>
+                        <li><a href="">
+                                <h4>组织管理</h4>
+                            </a></li>
+                        <li><a href="">
+                                <h4>灾害风险评估</h4>
+                            </a></li>
+                        <li><a href="">
+                                <h4>应急预案</h4>
+                            </a></li>
+                        <li><a href="">
+                                <h4>应急演练</h4>
+                            </a></li>
+                        <li><a href="">
+                                <h4>宣传教育</h4>
+                            </a></li>
+                        <li><a href="">
+                                <h4>应急避难场所</h4>
+                            </a></li>
+                        <li><a href="">
+                                <h4>应急储备</h4>
+                            </a></li>
+                        <li><a href="">
+                                <h4>志愿者队伍建设</h4>
+                            </a></li>
+                        <li><a href="">
+                                <h4>工作经费</h4>
+                            </a></li>
+                        <li><a href="">
+                                <h4>创建特色</h4>
+                            </a></li>
                     </ul>
-                </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 

@@ -86,19 +86,21 @@ body{
 }
 
 .sidevar .tables .inner>a,
-.sidevar .logout .inner>a {
+.sidevar .logout .inner>label {
+    cursor: pointer;
+    color: #ffffff;
     height: 30px;
     position: relative;
     display: block;
 }
 
 .sidevar .tables .inner>a i,
-.sidevar .logout .inner>a i  {
+.sidevar .logout .inner>label i  {
     margin-left: 12px;
 }
 
 .sidevar .tables .inner>a h4,
-.sidevar .logout .inner>a h4 {
+.sidevar .logout .inner>label h4 {
     position: absolute;
     width: 80px;
     left: 30px;
@@ -178,10 +180,14 @@ body{
     bottom: 0;
     border: 0;
 }
+.sidevar .logout input{
+    display: none;
+}
 .contain{
     position: absolute;
     left: 160px;
     right: 0;
     top: 69px;
     bottom: 0;
+    z-index: -999;
 }

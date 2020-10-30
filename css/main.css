@@ -6,16 +6,17 @@
     left: 50px;
     z-index: -1;
 }
-.up{
+/* .up{
     top: 0;
 }
 .down{
     bottom: 0;
-}
+} */
 .contain .big{
-    position: absolute;
+    /* position: absolute;
     left: 0;
-    right: 0;
+    right: 0; */
+    float: left;
     height: 280px;
     background-color: #fff;
     padding: 20px 35px;
@@ -26,7 +27,7 @@
     font-size: 24px;
 }
 .contain .big .title h4{
-    margin-left: 0px;
+    margin-left: 30px;
     display: inline;
 }
 .contain .big .body{

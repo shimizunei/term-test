@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(isset($_SESSION['admin'])){
+    Header("Location:/main.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +26,7 @@
         <div class="box">
             <div class="header">基层社区防灾减灾一掌通</div>
             <div class="body">
-                <form action="http://localhost/login_temp.php" method="POST">
+                <form action="/login_temp.php" method="POST">
                     <div class="user">
                         <label for="user">用户名</label>
                         <input type="text" name="username" id="user" required="required" autocomplete="off">

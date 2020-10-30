@@ -5,7 +5,7 @@ getCode();
 setcookie("codeId",$code,time()+180);
 function getCode(){
     $width = 120;
-    $height = 40;
+    $height = 40; 
     // 构造验证码的字符集
     $i=0;
     $a='a';
