@@ -53,6 +53,7 @@ window.onload = function () {
             codeImg.src = 'image_code.php' + '?nowtime=' + new Date().getTime();
         }
     })
+    // 像php那样用$_GET
     var $_GET = (function(){
         var url = window.document.location.href.toString();
         var u = url.split("?");
@@ -68,7 +69,7 @@ window.onload = function () {
             return {};
         }
     })();
-    console.log($_GET);
+    // 用户名输入框
     var username =document.querySelector('#user');
     if($_GET['userExist']=="false"){
         username.style.borderBottom="2px solid #bd2d30";
@@ -78,6 +79,7 @@ window.onload = function () {
         username.style.borderBottom="2px solid #38a1ff";
         username.placeholder="";
     }
+    // 密码输入框
     var password =document.querySelector('#password');
     if($_GET['passwordOk']=="false"){
         password.style.borderBottom="2px solid #bd2d30";

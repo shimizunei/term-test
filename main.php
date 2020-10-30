@@ -1,5 +1,6 @@
 <?php
 session_start();
+// 如果未登录
 if (!isset($_SESSION['admin'])) {
     Header("Location:/index.php");
 }
@@ -23,6 +24,7 @@ if (!isset($_SESSION['admin'])) {
         <div class="title"><a href="#">基层社区防灾减灾一掌通</a></div>
         <div class="name">
             <?php
+            // 设置name
             if (isset($_SESSION['username'])) {
                 echo $_SESSION['username'];
             } else {

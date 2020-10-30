@@ -1,5 +1,6 @@
 <?php
 session_start();
+// 是否已登录
 if(isset($_SESSION['admin'])){
     Header("Location:/main.php");
 }
