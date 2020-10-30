@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['admin'])){
+if (!isset($_SESSION['admin'])) {
     Header("Location:/index.php");
 }
 ?>
@@ -231,16 +231,17 @@ if(!isset($_SESSION['admin'])){
             </div>
         </div>
         <!-- 退出 按钮 -->
-        <form action="/login_temp.php">
-            <div class="logout">
+        <div class="logout">
+            <form action="/login_temp.php">
                 <div class="inner">
                     <label for="logout"><i></i>
                         <h4>退出系统</h4>
                     </label>
                     <input type="submit" id="logout" name="logout" value="">
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
+        
     </div>
     <!-- 内容 -->
     <div class="contain">
