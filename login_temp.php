@@ -38,6 +38,7 @@ if (!isset($_SESSION['admin'])) {
                 $_SESSION["admin"] = true;
                 $_SESSION['username'] = $arr['namestring'];
                 $_SESSION['userid'] = $arr['userid'];
+                closeDb($link);
             } else {
                 // 标记密码错误
                 Header("Location:/index.php?userExist=true&passwordOk=false");

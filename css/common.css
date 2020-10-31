@@ -29,6 +29,7 @@ body{
     width: 245px;
     height: 69px;
     left: 300px;
+    margin-left: 30px;
     font-size: 24px;
     text-align: center;
     color: #27274a;
@@ -78,8 +79,8 @@ body{
     border-bottom: 1px solid #5a5a67;
     transition: all .4s;
 }
-
-.sidevar .tables .inner,
+.current,
+/* .sidevar .tables .inner, */
 .sidevar .logout .inner:hover {
     background-color: #1a8cfe;
     border-radius: 6px;
@@ -191,4 +192,12 @@ body{
     bottom: 0;
     transition: all .3s;
     z-index: -999;
+}
+.contain>div{
+    position: absolute;
+    top: 25px;
+    bottom: 25px;
+    right: 50px;
+    left: 50px;
+    z-index: -1;
 }

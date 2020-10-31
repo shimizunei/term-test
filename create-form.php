@@ -15,11 +15,11 @@ $query = "select * from themename";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>主页</title>
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/create-from.css">
     <script src="/js/common.js"></script>
+    <title>创建表单</title>
 </head>
 
 <body>
@@ -29,7 +29,7 @@ $query = "select * from themename";
         <div class="name">
             <?php
             // 设置name
-            echo $_SESSION['username'];
+            echo $_GET['formname'];
             ?>
         </div>
         <!-- 消息通知 -->
@@ -65,7 +65,7 @@ $query = "select * from themename";
                                 $num = count($arr);
                                 for ($i = 2; $i < $num; $i++) {
                                     if ($arr[$i]) {
-                                        echo "<dd><a href='/create-form.php?formname=$arr[$i]'>$arr[$i]</a></dd>";
+                                        echo "<dd><a href='#'>$arr[$i]</a></dd>";
                                     }
                                 }
                                 echo "</dl>";
@@ -126,41 +126,13 @@ $query = "select * from themename";
     <!-- 内容 -->
     <div class="contain  flexible-left">
         <div>
-            <div class="big up">
-                <div class="title"><i></i>
-                    <h4>填写表单</h4>
-                </div>
-                <div class="body">
-                    <ul>
-                        <?php
-                        $result = execute($link, $query);
-                        while ($arr = mysqli_fetch_assoc($result)) {
-                            echo "<li><a href='/create-form.php?themename=$arr[theme]'><h4>$arr[theme]</h4></a></li>";
-                        }
-                        ?>
-                    </ul>
-                </div>
-            </div>
-            <div class="big down">
-                <div class="title"><i></i>
-                    <h4>管理表单</h4>
-                </div>
-                <div class="body">
-                    <ul>
-                        <?php
-                        $result = execute($link, $query);
-                        while ($arr = mysqli_fetch_assoc($result)) {
-                            echo "<li><a href='/create-form.php?themename=$arr[theme]'><h4>$arr[theme]</h4></a></li>";
-                        }
-                        ?>
-                    </ul>
-                </div>
+            <div class="form">
+                <div class="img"><i></i></div>
+                <div class="tile"></div>
+                <div class="text"></div>
             </div>
         </div>
     </div>
-
-
-
 </body>
 
 </html>

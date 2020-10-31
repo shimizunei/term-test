@@ -89,8 +89,6 @@ window.onload = function () {
         password.style.borderBottom="2px solid #38a1ff";
         password.placeholder="";
     }
-
-
     // 格式化字符串
     function formatStr(str) {
         // 忽略大小写 前后空字符

@@ -1,11 +1,4 @@
-.contain>div{
-    position: absolute;
-    top: 25px;
-    bottom: 25px;
-    right: 50px;
-    left: 50px;
-    z-index: -1;
-}
+
 /* .up{
     top: 0;
 }
@@ -20,6 +13,7 @@
     height: 280px;
     background-color: #fff;
     padding: 20px 35px;
+    margin-bottom: 30px;
 }
 .contain .big .title{
     height: 46px;
