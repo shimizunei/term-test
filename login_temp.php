@@ -21,7 +21,7 @@ if (!isset($_SESSION['admin'])) {
     if (isset($_POST['submit'])) {
         // 提取用户名和密码
         $username = htmlspecialchars($_POST['username']);
-        $password = $_POST['password'];
+        $password = md5($_POST['password']);
         // 连接数据库
         $link = connectDb('users');
         $query = "select * from user where username='$username' limit 1";
