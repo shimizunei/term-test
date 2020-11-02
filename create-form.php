@@ -6,7 +6,9 @@ session_start();
 if (!isset($_SESSION['admin'])) {
     Header("Location:/index.php");
 }
+// 连接数据库
 $link = connectDb('forms');
+// 读取thename表的记录
 $query = "select * from themename";
 ?>
 <!DOCTYPE html>
@@ -65,7 +67,7 @@ $query = "select * from themename";
                                 $num = count($arr);
                                 for ($i = 2; $i < $num; $i++) {
                                     if ($arr[$i]) {
-                                        echo "<dd><a href='#'>$arr[$i]</a></dd>";
+                                        echo "<dd><a href='/create-form.php?formname=$arr[$i]'>$arr[$i]</a></dd>";
                                     }
                                 }
                                 echo "</dl>";
@@ -126,11 +128,31 @@ $query = "select * from themename";
     <!-- 内容 -->
     <div class="contain  flexible-left">
         <div>
-            <div class="form">
-                <div class="img"><i></i></div>
-                <div class="tile"></div>
-                <div class="text"></div>
-            </div>
+            <?php
+            $queryformname = "select * from formname where form='$_GET[formname]'";
+            $resultformname = execute($link, $queryformname);
+            $arrformname = mysqli_fetch_row($resultformname);
+            $num = count($arrformname);
+            $index = array("doc" => "", "xls" => "", "jpg" => "");
+            for ($i = 2; $i < $num; $i++) {
+                if ($arrformname[$i]) {
+                    $queryforminfo = "select * from forms.form_info where name='$arrformname[$i]'";
+                    $resultforinfo = execute($link, $queryforminfo);
+                    $arrforminfo = mysqli_fetch_row($resultforinfo);
+                    echo "<div class='form'>
+                        <div class='img $arrforminfo[3]'><i>" . $index[$arrforminfo[3]] . "</i></div>
+                        <div class='title'><h4>$arrforminfo[2]</h4></div>
+                    </div>";
+                }
+            }
+            ?>
+            <!-- <div class="form">
+                <div class="img"><i></i></div>
+                <div class="title">
+                    <h4>人口结构分布表</h4>
+                </div>
+                <div class="text">每半年至少一次，4-6次</div>
+            </div> -->
         </div>
     </div>
 </body>

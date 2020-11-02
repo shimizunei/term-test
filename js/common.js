@@ -37,7 +37,6 @@ window.onload = function () {
     })
     var pathName = window.document.location.pathname;　
     var projectName = pathName.substring(1, pathName.substr(1).indexOf('.') + 1);
-    console.log(projectName);
     var current =document.querySelector('.'+projectName).querySelector('.inner');
     current.className=current.className+" current";
 }

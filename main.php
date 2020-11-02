@@ -6,6 +6,7 @@ session_start();
 if (!isset($_SESSION['admin'])) {
     Header("Location:/index.php");
 }
+// 连接数据库
 $link = connectDb('forms');
 $query = "select * from themename";
 ?>
