@@ -139,10 +139,10 @@ $query = "select * from themename";
                     $queryforminfo = "select * from forms.form_info where name='$arrformname[$i]'";
                     $resultforinfo = execute($link, $queryforminfo);
                     $arrforminfo = mysqli_fetch_row($resultforinfo);
-                    echo "<div class='form'>
+                    echo "<a href='/fillform.php?formname=$arrforminfo[2]' class='form'> 
                         <div class='img $arrforminfo[3]'><i>" . $index[$arrforminfo[3]] . "</i></div>
                         <div class='title'><h4>$arrforminfo[2]</h4></div>
-                    </div>";
+                    </a>";
                 }
             }
             ?>
@@ -158,5 +158,3 @@ $query = "select * from themename";
 </body>
 
 </html>
-<?php
-closeDb($link);

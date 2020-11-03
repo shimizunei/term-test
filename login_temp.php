@@ -13,6 +13,7 @@ if (isset($_GET['logout'])) {
     unset($_SESSION['admin']);
     unset($_SESSION['username']);
     unset($_SESSION['userid']);
+    closeDb($link);
     Header("Location:/index.php");
 }
 // 如果没有登录
@@ -38,7 +39,6 @@ if (!isset($_SESSION['admin'])) {
                 $_SESSION["admin"] = true;
                 $_SESSION['username'] = $arr['namestring'];
                 $_SESSION['userid'] = $arr['userid'];
-                closeDb($link);
             } else {
                 // 标记密码错误
                 Header("Location:/index.php?userExist=true&passwordOk=false");

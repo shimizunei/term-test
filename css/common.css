@@ -26,11 +26,10 @@ body{
 .header .name {
     position: absolute;
     float: left;
-    width: 245px;
+    width: 295px;
     height: 69px;
-    left: 300px;
-    margin-left: 30px;
-    font-size: 24px;
+    left: 330px;
+    font-size: 22px;
     text-align: center;
     color: #27274a;
     line-height: 69px;
@@ -38,8 +37,7 @@ body{
 
 .header .message {
     position: absolute;
-    float: right;
-    right: 20px;
+    right: 30px;
     font-size: 24px;
     line-height: 69px;
     cursor: pointer;

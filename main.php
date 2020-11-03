@@ -165,5 +165,3 @@ $query = "select * from themename";
 </body>
 
 </html>
-<?php
-closeDb($link);

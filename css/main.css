@@ -1,19 +1,20 @@
 
-/* .up{
+.up{
     top: 0;
 }
 .down{
-    bottom: 0;
-} */
+    top: 310px;
+}
 .contain .big{
-    /* position: absolute;
+    position: absolute;
     left: 0;
-    right: 0; */
-    float: left;
+    right: 0;
+    overflow-x:auto;
+    /* float: left; */
     height: 280px;
     background-color: #fff;
     padding: 20px 35px;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
 }
 .contain .big .title{
     height: 46px;
