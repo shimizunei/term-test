@@ -38,7 +38,7 @@
     position: fixed;
     top: 100px;
     left: 20px;
-    width: 200px;
+    width: 180px;
     height: 240px;
     background-color: #fff;
 
@@ -47,15 +47,15 @@
     position: fixed;
     top: 100px;
     right: 20px;
-    width: 175px;
+    width: 155px;
     height: 240px;
     background-color: #fff;
 }
 .mbody{
     position: absolute;
     top: 100px;
-    left: 240px;
-    right: 215px;
+    left: 220px;
+    right: 195px;
     height: 2400px;
     background-color: #fff;
 }
@@ -68,9 +68,12 @@
     background-color: #fafafa;
     border-bottom: 1px solid #c5c5c5;
     overflow-x: auto;
-    /* overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap; */
+}
+.mbody .content{
+    padding: 30px 70px 30px 40px;
+    font: 20px/2 sans-serif;
+    text-indent: 2em;
+
 }
 .submit{
     position: fixed;
@@ -84,4 +87,14 @@
     line-height: 34px;
     background-color:#1a8cfe;
     border-radius: 13px;
+}
+.textarea{
+    text-indent: 0;
+    font-size: 10px;
+    width: 100%;
+    padding: 5px;
+    display: block;
+    border: 1px solid #1a8cfe;
+    resize: none;
+    outline: none;
 }
