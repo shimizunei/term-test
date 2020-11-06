@@ -71,15 +71,16 @@
 }
 .mbody .content{
     padding: 30px 70px 30px 40px;
+}
+.mbody .content .section{
     font: 20px/2 sans-serif;
     text-indent: 2em;
-
 }
 .submit{
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 175px;
+    width: 155px;
     height: 34px;
     color: #fff;
     font-size: 16px;
@@ -97,4 +98,21 @@
     border: 1px solid #1a8cfe;
     resize: none;
     outline: none;
+}
+.table{
+    font: 16px/1.5 sans-serif;
+}
+.table table{
+    width: 100%;
+    border: 0;
+    text-align: center;
+    background-color: #1a8cfe;
+    border-spacing: 1px;
+}
+.table caption{
+    font-size: 22px;
+}
+.table table td,
+.table table th{
+    background-color: #fff;
 }

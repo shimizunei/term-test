@@ -91,7 +91,6 @@ $link2 = connectDb('formcontent');
                     $resultxls = execute($link2, $query);
                     $arrxls = mysqli_fetch_assoc($resultxls);
                     print_r($arrxls);
-
                 }
             }
             if ($arr[1]) {
@@ -113,9 +112,28 @@ $link2 = connectDb('formcontent');
                 }
             }
             ?>
+            <div class="table">
+                <table>
+                    <caption>组长</caption>
+                    <tr>
+                        <th>职务</th>
+                        <th>姓名</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr>
+                        <td contenteditable='true'>秘书</td>
+                        <td contenteditable='true'>小明</td>
+                        <td>
+                            <a href=""><i></i></a>
+                            <a href=""><i></i></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
         <!-- 提交按钮 -->
         <div class="submit">
             <h4>提交</h4>
         </div>
+
 </body>
