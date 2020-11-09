@@ -1,11 +1,20 @@
 window.onload = function () {
     var texts = document.querySelectorAll('.text');
     var textareas = document.querySelectorAll('.textarea');
-    var textareasinner=new Array();
-    for (var i = 0; i < textareas.length; i++) {
-        textareasinner.push(textareas[i-1].innerText);
+    var clears = document.querySelectorAll('.clear');
+    var resets = document.querySelectorAll('.reset');
+    var textsinner = new Array();
+    for (var i = 0; i < texts.length; i++) {
+        textsinner.push(texts[i].innerText);
+        clears[i].addEventListener('click',function(){
+            textareas[i-1].innerText="";
+        })
+        resets[i].addEventListener('click',function(){
+            textareas[i-1].innerText=textsinner[i-1];
+        })
         setInterval(function () {
-            textareas[i-1].previousElementSibling.innerText = textareas[i-1].innerText;
+            if (textareas[i - 1].innerText !== texts[i - 1].innerText)
+                texts[i - 1].innerText = textareas[i - 1].innerText;
         }, 300);
     }
 }

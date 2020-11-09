@@ -62,10 +62,9 @@ $link2 = connectDb('formcontent');
             function xls($arr)
             {
                 global $link, $link2;
-
+                $num = count($arr);
                 //遍历 递归直到不再嵌套表
                 if (!$arr[2]) {
-                    $num = count($arr);
                     for ($i = 5; $i < $num; $i++) {
                         if ($arr[$i]) {
                             $query = "select * from `secondaryinfo-xls` where protitle='$arr[3]' and ind=" . ($i - 4) . " limit 1";
@@ -75,28 +74,51 @@ $link2 = connectDb('formcontent');
                         }
                     }
                 } else {
-                    // for($i=5;$i<$num;$i++){
-                    //     if($arr[$i]){
-                    //         $item="";
-                    //         $item.="`$arr[$i]` VARCHAR(45) NOT NULL,";
-                    //     }
-                    // }
-                    // $create="CREATE TABLE `formcontent`.`$arr[0]-$arr[3]` (".$item
-                    // ."PRIMARY KEY (`$arr[5]`));";
-                    // // 创建表
-                    // execute($link2,$create);
+                    $title = "";
+                    $item = "";
+                    for ($i = 5; $i < $num; $i++) {
+                        if ($arr[$i]) {
+                            $title .= "<th>" . $arr[$i] . "</th>";
+                            $item .= "`$arr[$i]` VARCHAR(45) NOT NULL,";
+                        }
+                    }
+                    $create = "CREATE TABLE `formcontent`.`$arr[0]-$arr[3]` (" . $item
+                        . "PRIMARY KEY (`$arr[5]`));";
+                    // 创建表
+                    // execute($link2, $create);
 
-                    echo "$arr[3]";
                     $query = "select * from `$arr[0]-$arr[3]`";
                     $resultxls = execute($link2, $query);
-                    $arrxls = mysqli_fetch_assoc($resultxls);
+                    $item = "";
+                    while ($arrxls = mysqli_fetch_row($resultxls)) {
+                        $item .= "<tr>";
+                        for ($i = 0; $i < count($arrxls); $i++)
+                            $item .= "<td contenteditable='true'>" . $arrxls[$i] . "</div></td>";
+                        $item .= "
+                                    <td>
+                                        <a href=''>提交</a>
+                                        <a href=''>删除</a>
+                                    </td></tr>";
+                    }
                     print_r($arrxls);
+                    echo " 
+                    <div class='table'>
+                    <table>
+                        <caption>" . $arr[3] . "</caption>
+                        <tr>
+                            ".$title."
+                            <th>操作</th>
+                        </tr>
+                        " . $item . "
+                    </table>
+                    </div>";
                 }
             }
             if ($arr[1]) {
                 echo "<div class='section'>";
                 echo "<div class='text'>$arr[1]</div>";
-                echo "<div class='textarea'contenteditable='true'>$arr[1]</div></div>";
+                echo "<div class='textarea'contenteditable='true'>$arr[1]</div>";
+                echo "<div class='clear'>清空</div><div class='reset'>重置</div></div>";
             }
             $num = count($arr); // 遍历mainifo
             for ($i = 2; $i < $num; $i++) {
@@ -105,6 +127,7 @@ $link2 = connectDb('formcontent');
                         $query = "select * from `secondaryinfo-xls` where protitle='$_GET[formname]' and ind=" . ($i - 1) . " limit 1";
                         $resultxls = execute($link, $query);
                         $arrxls = mysqli_fetch_row($resultxls);
+                        echo "<div class='subtitle'>".$i.".".$arrxls[3]."</div>";
                         xls($arrxls);
                     }
                     // echo "<div class='text'>$arr[1]</div>";
@@ -112,24 +135,8 @@ $link2 = connectDb('formcontent');
                 }
             }
             ?>
-            <div class="table">
-                <table>
-                    <caption>组长</caption>
-                    <tr>
-                        <th>职务</th>
-                        <th>姓名</th>
-                        <th>操作</th>
-                    </tr>
-                    <tr>
-                        <td contenteditable='true'>秘书</td>
-                        <td contenteditable='true'>小明</td>
-                        <td>
-                            <a href=""><i></i></a>
-                            <a href=""><i></i></a>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+
+        
         </div>
         <!-- 提交按钮 -->
         <div class="submit">

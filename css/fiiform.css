@@ -73,6 +73,7 @@
     padding: 30px 70px 30px 40px;
 }
 .mbody .content .section{
+    position: relative;
     font: 20px/2 sans-serif;
     text-indent: 2em;
 }
@@ -99,6 +100,27 @@
     resize: none;
     outline: none;
 }
+.clear,
+.reset{
+    right: -60px;
+    position: absolute;
+    display: inline-block;
+    width: 50px;
+    background-color: #1a8cfe;
+    cursor: pointer;
+    color: #fff;
+    text-align: center;
+    border-radius: 10%;
+    border:1px solid #c5c5c5;
+    font-size: 12px;
+    text-indent: 0;
+}
+.clear{
+    bottom: 30px;
+}
+.reset{
+    bottom: 0px;
+}
 .table{
     font: 16px/1.5 sans-serif;
 }
@@ -115,4 +137,7 @@
 .table table td,
 .table table th{
     background-color: #fff;
+}
+.table table td a{
+    color: #1a8cfe;
 }
