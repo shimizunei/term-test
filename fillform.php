@@ -79,11 +79,11 @@ $link2 = connectDb('formcontent');
                     for ($i = 5; $i < $num; $i++) {
                         if ($arr[$i]) {
                             $title .= "<th>" . $arr[$i] . "</th>";
-                            $item .= "`$arr[$i]` VARCHAR(45) NOT NULL,";
+                            $item .= "`$arr[$i]` VARCHAR(45) NULL,";
                         }
                     }
-                    $create = "CREATE TABLE `formcontent`.`$arr[0]-$arr[3]` (" . $item
-                        . "PRIMARY KEY (`$arr[5]`));";
+                    $create = "CREATE TABLE `formcontent`.`$arr[0]-$arr[3]` (`id` INT NOT NULL AUTO_INCREMENT," . $item
+                        . "PRIMARY KEY (`id`,`$arr[5]`));";
                     // 创建表
                     // execute($link2, $create);
 
@@ -91,14 +91,16 @@ $link2 = connectDb('formcontent');
                     $resultxls = execute($link2, $query);
                     $item = "";
                     while ($arrxls = mysqli_fetch_row($resultxls)) {
-                        $item .= "<tr>";
-                        for ($i = 0; $i < count($arrxls); $i++)
-                            $item .= "<td contenteditable='true'>" . $arrxls[$i] . "</div></td>";
+                        $item .= "<tr class='col'><form action='/form_temp.php' method='get' target='_blank'>";
+                        for ($i = 1; $i < count($arrxls); $i++)
+                            $item .= "<td><input type='text' value='$arrxls[$i]' name='" . $arr[$i + 4] . "' autocomplete='off' spellcheck='false'></div></td>";
                         $item .= "
                                     <td>
-                                        <a href=''>提交</a>
-                                        <a href=''>删除</a>
-                                    </td></tr>";
+                                    <input class='hide' type='text' name='id' value='$arrxls[0]'>
+                                    <input class='hide' type='text' name='formname' value='$arr[0]-$arr[3]'>
+                                    <input type='submit' name='change' value='提交'>
+                                    <input type='submit' id='delete' name='delete' value='删除'>
+                                    </td></form></tr>";
                     }
                     print_r($arrxls);
                     echo " 
@@ -106,7 +108,7 @@ $link2 = connectDb('formcontent');
                     <table>
                         <caption>" . $arr[3] . "</caption>
                         <tr>
-                            ".$title."
+                            " . $title . "
                             <th>操作</th>
                         </tr>
                         " . $item . "
@@ -127,7 +129,7 @@ $link2 = connectDb('formcontent');
                         $query = "select * from `secondaryinfo-xls` where protitle='$_GET[formname]' and ind=" . ($i - 1) . " limit 1";
                         $resultxls = execute($link, $query);
                         $arrxls = mysqli_fetch_row($resultxls);
-                        echo "<div class='subtitle'>".$i.".".$arrxls[3]."</div>";
+                        echo "<div class='subtitle'>" . $i . "." . $arrxls[3] . "</div>";
                         xls($arrxls);
                     }
                     // echo "<div class='text'>$arr[1]</div>";
@@ -135,8 +137,6 @@ $link2 = connectDb('formcontent');
                 }
             }
             ?>
-
-        
         </div>
         <!-- 提交按钮 -->
         <div class="submit">

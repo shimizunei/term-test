@@ -100,6 +100,13 @@
     resize: none;
     outline: none;
 }
+.subtitle{
+    margin:20px 0;
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: 6px;
+    text-align: center;
+}
 .clear,
 .reset{
     right: -60px;
@@ -138,6 +145,15 @@
 .table table th{
     background-color: #fff;
 }
-.table table td a{
+.table table td input{
+    width: 100%;
+    overflow-x:auto;
+    text-align: center;
+}
+.table table td input[type='submit']{
+    width: 50%;
+    float: left;
+    background-color: #fff;
     color: #1a8cfe;
+    cursor: pointer;
 }

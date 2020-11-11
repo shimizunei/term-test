@@ -1,9 +1,8 @@
 <?php
 session_start();
 // 是否已登录
-if(isset($_SESSION['admin'])){
+if(isset($_SESSION['admin']))
     Header("Location:/main.php");
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,7 +29,7 @@ if(isset($_SESSION['admin'])){
                 <form action="/login_temp.php" method="POST">
                     <div class="user">
                         <label for="user">用户名</label>
-                        <input type="text" name="username" id="user" required="required" autocomplete="off">
+                        <input type="text" name="username" id="user" required="required" autocomplete="off" spellcheck="false">
                         <i class="clear"></i>
                     </div>
                     <div class="password">
@@ -40,7 +39,7 @@ if(isset($_SESSION['admin'])){
                         <i class="d-n-swithch"></i>
                     </div>
                     <div class="code">
-                        <input type="text" name="code" id="code" required="required" autocomplete="off" placeholder="请输入验证码">
+                        <input type="text" name="code" id="code" required="required" autocomplete="off" placeholder="请输入验证码" spellcheck="false">
                         <img src="./image_code.php" alt="">
                     </div>
                     <input type="submit" name="submit"id="submit" value="登录"  >

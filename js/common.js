@@ -1,15 +1,15 @@
+
 window.onload = function () {
+    var sideTurnFlag=true;
     // 侧边栏
     var sidevar = document.querySelector('.sidevar');
     // 展开收起标签
     var sideTurn = sidevar.querySelector('.turn');
     // 展开收起按钮
     var turnI = sideTurn.querySelector('i');
-    // 展开收起标志
-    var sideTurnFlag = true;
     var flexibles = document.querySelectorAll('.flexible');
-    var flexibleTexts = document.querySelectorAll('.flexible-text')
-    var flexibleLefts = document.querySelectorAll('.flexible-left')
+    var flexibleTexts = document.querySelectorAll('.flexible-text');
+    var flexibleLefts = document.querySelectorAll('.flexible-left');
     turnI.addEventListener('click', function () {
         if (sideTurnFlag) {
             // 修改展开收起按钮的样式
@@ -35,8 +35,8 @@ window.onload = function () {
             sideTurnFlag = true;
         }
     })
-    var pathName = window.document.location.pathname;　
+    var pathName = window.document.location.pathname;
     var projectName = pathName.substring(1, pathName.substr(1).indexOf('.') + 1);
-    var current =document.querySelector('.'+projectName).querySelector('.inner');
-    current.className=current.className+" current";
+    var current = document.querySelector('.' + projectName).querySelector('.inner');
+    current.className = current.className + " current";
 }
