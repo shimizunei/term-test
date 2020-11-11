@@ -98,7 +98,7 @@ $link2 = connectDb('formcontent');
                                     <td>
                                     <input class='hide' type='text' name='id' value='$arrxls[0]'>
                                     <input class='hide' type='text' name='formname' value='$arr[0]-$arr[3]'>
-                                    <input type='submit' name='change' value='提交'>
+                                    <input type='submit' name='change' value='修改'>
                                     <input type='submit' id='delete' name='delete' value='删除'>
                                     </td></form></tr>";
                     }
@@ -113,6 +113,7 @@ $link2 = connectDb('formcontent');
                         </tr>
                         " . $item . "
                     </table>
+                    <div class='clear'>添加</div>
                     </div>";
                 }
             }

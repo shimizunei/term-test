@@ -13,4 +13,4 @@ if(@$_GET['change']){
     $query="DELETE FROM `".$_GET['formname']."` where `id`=".$_GET['id']." limit 1";  
 }
 execute($link, $query);
-
+echo '<script>window.close()</script>';
