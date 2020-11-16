@@ -20,48 +20,13 @@ window.onload = function () {
     var deletes = document.querySelectorAll('#delete');
     for (i = 0; i < deletes.length; i++) {
         deletes[i].addEventListener('click', function () {
-            this.parentElement.parentElement.style.display = "none";
+            this.parentElement.style.display = "none";
         })
     }
     var additems=document.querySelectorAll('.additem');
     for(i=0;i<additems.length;i++){
         additems[i].addEventListener('click',function(){
-            var tr =document.createElement('tr');
-            tr.setAttribute('class','col');
-
-            var table =document.createElement('table');
-
-
-            var form=document.createElement('form');
-            form.setAttribute('action','/form_temp.php');
-            form.setAttribute('method','get');
-            form.setAttribute('target','_blank');
-            form.appendChild(table);
-            var td=document.createElement('td');
-            var input=document.createElement('input');
-            input.setAttribute('type','text');
-            input.setAttribute('value','社区（村）属地单位负责');
-            td.appendChild(input);
-            tr.appendChild(td);
-
-            td=document.createElement('td');
-            input=document.createElement('input');
-            input.setAttribute('type','text');
-            input.setAttribute('value','1 ');
-            td.appendChild(input);
-            tr.appendChild(td);
-            td=document.createElement('td');
-            input=document.createElement('input');
-            input.setAttribute('type','submit');
-            input.setAttribute('name','change');
-            input.setAttribute('value','修改');
-            td.appendChild(input);
-            tr.appendChild(td);
-            table.appendChild(tr);
-
-            
-            // console.log(this.previousElementSibling.querySelector('tbody'));
-            this.previousElementSibling.querySelector('tbody').insertBefore(form,this.previousElementSibling.querySelector('tbody').querySelector('.last'))
+            this.previousElementSibling.innerHTML+="<form action=''><label for=''>职务</label><input type='text' value='' id='' name=''><label for=''>姓名</label><input type='text' value='' id='' name=''><input class='hide' type='text' name='id' value='$arrxls[0]'> <input class='hide' type='text' name='formname' value='$arr[0]-$arr[3]'> <input type='submit' name='change' value='修改'> <input type='submit' id='delete' name='delete' value='删除'></form>";
         })
     }
 

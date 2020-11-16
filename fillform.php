@@ -127,7 +127,6 @@ $link2 = connectDb('formcontent');
                             " . $item . "
                             <tr class='last hide'></tr>
                         </table>
-                        <div class='additem' data-name='$arr[3]' data-iname='$arr[5]' data-iname='$arr[6]'><i></i><h4>添加</h4></div>
                         </div>";
                 }
             }
@@ -150,14 +149,28 @@ $link2 = connectDb('formcontent');
                 }
             }
             ?>
+            <div class="form">
+                <fieldset>
+                    <legend>组长</legend>
+                    <form action="">
+                        <label for="">职务</label><input type="text" value="" id="" name="">
+                        <label for="">姓名</label><input type="text" value="" id="" name="">
+                        <input class='hide' type='text' name='id' value='$arrxls[0]'>
+                        <input class='hide' type='text' name='formname' value='$arr[0]-$arr[3]'>
+                        <input type='submit' name='change' value='修改'>
+                        <input type='submit' id='delete' name='delete' value='删除'>
+                    </form>
+                    <form action="">
+                        <label for="">职务</label><input type="text" value="" id="" name="">
+                        <label for="">姓名</label><input type="text" value="" id="" name="">
+                    </form>
+                </fieldset>
+                <div class='additem' data-name='$arr[3]' data-iname='$arr[5]' data-iname='$arr[6]'><i></i>
+                    <h4>添加</h4>
+                </div>
+            </div>
         </div>
-        <form action="">
-        <fieldset>
-            <legend>组长</legend>
-        <label for="">职务</label><input type="text" value="" id="" name="">
-        <label for="">姓名</label><input type="text" value="" id="" name="">
-        </fieldset>
-        </form>
+
         <!-- 提交按钮 -->
         <div class="submit">
             <h4>提交</h4>

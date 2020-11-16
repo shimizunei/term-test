@@ -60,6 +60,7 @@
     background-color: #fff;
 }
 .mbody .title{
+    padding: 0 10px;
     font-size: 24px;
     font-weight: 700;
     text-align: center;
@@ -67,7 +68,6 @@
     height: 61px;
     background-color: #fafafa;
     border-bottom: 1px solid #c5c5c5;
-    overflow-x: auto;
 }
 .mbody .content{
     padding: 30px 70px 30px 40px;
@@ -155,8 +155,29 @@
     text-align: center;
 }
 .table table td input[type='submit']{
-    width: 50%;
-    float: left;
+    background-color: #fff;
+    color: #1a8cfe;
+    cursor: pointer;
+}
+.form{
+    position: relative;
+}
+fieldset{
+    font-weight: 700;
+    font-size: 22px;
+    border:1px solid #1a8cfe;
+}
+fieldset label{
+    padding: 0 5px;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+}
+fieldset input[type='text']{
+    width: 30%;
+    border: #1a8cfe 1px solid;
+}
+fieldset input[type='submit']{
     background-color: #fff;
     color: #1a8cfe;
     cursor: pointer;
