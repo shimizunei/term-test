@@ -26,7 +26,19 @@ window.onload = function () {
     var additems=document.querySelectorAll('.additem');
     for(i=0;i<additems.length;i++){
         additems[i].addEventListener('click',function(){
-            this.previousElementSibling.innerHTML+="<form action=''><label for=''>职务</label><input type='text' value='' id='' name=''><label for=''>姓名</label><input type='text' value='' id='' name=''><input class='hide' type='text' name='id' value='$arrxls[0]'> <input class='hide' type='text' name='formname' value='$arr[0]-$arr[3]'> <input type='submit' name='change' value='修改'> <input type='submit' id='delete' name='delete' value='删除'></form>";
+            if(this.previousElementSibling.lastElementChild.dataset.id){
+                var id=this.previousElementSibling.lastElementChild.dataset.id;
+            }else{
+                var id=0;
+            }
+            id++;
+            var out="<form action='/form_temp.php' method='get' target='_blank' data-id='"+id+"'>";
+            for(var i=1;i<this.dataset.length;i++){
+                var temp=this.getAttribute("data-item"+i);
+                out+="<label for=''>"+temp+"</label><input type='text' value='' id='' name='"+temp+"' autocomplete='off' spellcheck='false'>";
+            }
+            out+="<input class='hide' type='text' name='id' value='"+id+"'> <input class='hide' type='text' name='formname' value='"+this.dataset.formname+"'> <input type='submit' name='change' value='修改'> <input type='submit' id='delete' name='delete' value='删除'></form>"
+            this.previousElementSibling.innerHTML+=out;
         })
     }
 

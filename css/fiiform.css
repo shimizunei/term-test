@@ -56,7 +56,6 @@
     top: 100px;
     left: 220px;
     right: 195px;
-    height: 2400px;
     background-color: #fff;
 }
 .mbody .title{
@@ -76,6 +75,7 @@
     position: relative;
     font: 20px/2 sans-serif;
     text-indent: 2em;
+    margin: 15px 0;
 }
 .submit{
     position: fixed;
@@ -109,7 +109,9 @@
 }
 .clear,
 .reset,
+.sub,
 .additem{
+    font: 14px/1.5 sans-serif;
     right: -60px;
     position: absolute;
     display: inline-block;
@@ -118,21 +120,30 @@
     cursor: pointer;
     color: #fff;
     text-align: center;
-    border-radius: 15%;
-    font-size: 13px;
+    border-radius: 10%;
+    font-size: 12px;
     text-indent: 0;
 }
-.clear{
-    bottom: 30px;
+.clear:hover,
+.reset:hover,
+.sub:hover,
+.additem:hover{
+    background-color: #5fafff;
 }
-.reset,
+.clear{
+    bottom: 44px;
+}
+.reset{
+    bottom: 22px;
+}
+.sub,
 .additem{
     bottom: 0px;
 }
 .additem h4{
     display: inline-block;
 }
-.table{
+/* .table{
     position: relative;
     font: 16px/1.5 sans-serif;
 }
@@ -158,8 +169,9 @@
     background-color: #fff;
     color: #1a8cfe;
     cursor: pointer;
-}
+} */
 .form{
+    margin-bottom: 20px;
     position: relative;
 }
 fieldset{
@@ -170,7 +182,7 @@ fieldset{
 fieldset label{
     padding: 0 5px;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 18px;
     text-align: center;
 }
 fieldset input[type='text']{
