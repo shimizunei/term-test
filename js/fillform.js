@@ -3,24 +3,66 @@ window.onload = function () {
     var textareas = document.querySelectorAll('.textarea');
     var clears = document.querySelectorAll('.clear');
     var resets = document.querySelectorAll('.reset');
-    var textsinner = new Array();
     for (var i = 0; i < texts.length; i++) {
-        textsinner.push(texts[i].innerText);
         clears[i].addEventListener('click', function () {
-            textareas[i - 1].innerText = "";
+            this.previousElementSibling.innerText = "";
         })
+        resets[i].dataset.text = resets[i].previousElementSibling.previousElementSibling.innerText
         resets[i].addEventListener('click', function () {
-            textareas[i - 1].innerText = textsinner[i - 1];
+            this.previousElementSibling.previousElementSibling.innerText = this.dataset.text;
         })
-        setInterval(function () {
-            if (textareas[i - 1].innerText !== texts[i - 1].innerText)
-                texts[i - 1].innerText = textareas[i - 1].innerText;
-        }, 300);
+        setInterval(function c(i) {
+            if (textareas[i].innerText !== texts[i].innerText)
+                texts[i].innerText = textareas[i].innerText;
+        }, 300, i);
+
     }
     var deletes = document.querySelectorAll('#delete');
-    for (j = 0; j < deletes.length; j++) {
-        deletes[j].addEventListener('click', function () {
+    for (i = 0; i < deletes.length; i++) {
+        deletes[i].addEventListener('click', function () {
             this.parentElement.parentElement.style.display = "none";
         })
     }
+    var additems=document.querySelectorAll('.additem');
+    for(i=0;i<additems.length;i++){
+        additems[i].addEventListener('click',function(){
+            var tr =document.createElement('tr');
+            tr.setAttribute('class','col');
+
+            var table =document.createElement('table');
+
+
+            var form=document.createElement('form');
+            form.setAttribute('action','/form_temp.php');
+            form.setAttribute('method','get');
+            form.setAttribute('target','_blank');
+            form.appendChild(table);
+            var td=document.createElement('td');
+            var input=document.createElement('input');
+            input.setAttribute('type','text');
+            input.setAttribute('value','社区（村）属地单位负责');
+            td.appendChild(input);
+            tr.appendChild(td);
+
+            td=document.createElement('td');
+            input=document.createElement('input');
+            input.setAttribute('type','text');
+            input.setAttribute('value','1 ');
+            td.appendChild(input);
+            tr.appendChild(td);
+            td=document.createElement('td');
+            input=document.createElement('input');
+            input.setAttribute('type','submit');
+            input.setAttribute('name','change');
+            input.setAttribute('value','修改');
+            td.appendChild(input);
+            tr.appendChild(td);
+            table.appendChild(tr);
+
+            
+            // console.log(this.previousElementSibling.querySelector('tbody'));
+            this.previousElementSibling.querySelector('tbody').insertBefore(form,this.previousElementSibling.querySelector('tbody').querySelector('.last'))
+        })
+    }
+
 }

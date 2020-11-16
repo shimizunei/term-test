@@ -18,6 +18,8 @@ $link2 = connectDb('formcontent');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $_SESSION['username'] . $_GET['formname']; ?></title>
+    <script src="https://cdn.staticfile.org/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/fiiform.css">
@@ -80,41 +82,53 @@ $link2 = connectDb('formcontent');
                         if ($arr[$i]) {
                             $title .= "<th>" . $arr[$i] . "</th>";
                             $item .= "`$arr[$i]` VARCHAR(45) NULL,";
-                        }
+                        } else
+                            break;
                     }
+                    $length = $i - 4;
+                    $cookie = "<form action='/form_temp.php' method='get' target='_blank'><tr class='col'>";
+                    for ($i = 1; $i < $length; $i++)
+                        $cookie .= "<td><input type='text' value='' name='" . $arr[$i + 4] . "' autocomplete='off' spellcheck='false'></div></td>";
+                    $cookie .= "
+                                <td>
+                                <input class='hide' type='text' name='id' value=''>
+                                <input class='hide' type='text' name='formname' value='$arr[0]-$arr[3]'>
+                                <input type='submit' name='change' value='修改'>
+                                <input type='submit' id='delete' name='delete' value='删除'>
+                                </td></tr></form>";
+                    $_SESSION["item" . $arr[3]] = $cookie;
                     $create = "CREATE TABLE `formcontent`.`$arr[0]-$arr[3]` (`id` INT NOT NULL AUTO_INCREMENT," . $item
                         . "PRIMARY KEY (`id`,`$arr[5]`));";
                     // 创建表
                     // execute($link2, $create);
-
                     $query = "select * from `$arr[0]-$arr[3]`";
                     $resultxls = execute($link2, $query);
                     $item = "";
                     while ($arrxls = mysqli_fetch_row($resultxls)) {
                         $item .= "<tr class='col'><form action='/form_temp.php' method='get' target='_blank'>";
-                        for ($i = 1; $i < count($arrxls); $i++)
-                            $item .= "<td><input type='text' value='$arrxls[$i]' name='" . $arr[$i + 4] . "' autocomplete='off' spellcheck='false'></div></td>";
+                        for ($i = 1; $i < $length; $i++)
+                            $item .= "<td><input type='text' value='$arrxls[$i]' name='" . $arr[$i + 4] . "' autocomplete='off' spellcheck='false'></td>";
                         $item .= "
-                                    <td>
-                                    <input class='hide' type='text' name='id' value='$arrxls[0]'>
-                                    <input class='hide' type='text' name='formname' value='$arr[0]-$arr[3]'>
-                                    <input type='submit' name='change' value='修改'>
-                                    <input type='submit' id='delete' name='delete' value='删除'>
-                                    </td></form></tr>";
+                                <td>
+                                <input class='hide' type='text' name='id' value='$arrxls[0]'>
+                                <input class='hide' type='text' name='formname' value='$arr[0]-$arr[3]'>
+                                <input type='submit' name='change' value='修改'>
+                                <input type='submit' id='delete' name='delete' value='删除'>
+                                </td></form></tr>";
                     }
-                    print_r($arrxls);
                     echo " 
-                    <div class='table'>
-                    <table>
-                        <caption>" . $arr[3] . "</caption>
-                        <tr>
-                            " . $title . "
-                            <th>操作</th>
-                        </tr>
-                        " . $item . "
-                    </table>
-                    <div class='clear'>添加</div>
-                    </div>";
+                        <div class='table'>
+                        <table>
+                            <caption>" . $arr[3] . "</caption>
+                            <tr>
+                                " . $title . "
+                                <th>操作</th>
+                            </tr>
+                            " . $item . "
+                            <tr class='last hide'></tr>
+                        </table>
+                        <div class='additem' data-name='$arr[3]' data-iname='$arr[5]' data-iname='$arr[6]'><i></i><h4>添加</h4></div>
+                        </div>";
                 }
             }
             if ($arr[1]) {
@@ -130,15 +144,20 @@ $link2 = connectDb('formcontent');
                         $query = "select * from `secondaryinfo-xls` where protitle='$_GET[formname]' and ind=" . ($i - 1) . " limit 1";
                         $resultxls = execute($link, $query);
                         $arrxls = mysqli_fetch_row($resultxls);
-                        echo "<div class='subtitle'>" . $i . "." . $arrxls[3] . "</div>";
+                        echo "<div class='subtitle'>" . ($i - 1) . "." . $arrxls[3] . "</div>";
                         xls($arrxls);
                     }
-                    // echo "<div class='text'>$arr[1]</div>";
-                    // echo "<div class='textarea'contenteditable='true'>$arr[1]</div>";
                 }
             }
             ?>
         </div>
+        <form action="">
+        <fieldset>
+            <legend>组长</legend>
+        <label for="">职务</label><input type="text" value="" id="" name="">
+        <label for="">姓名</label><input type="text" value="" id="" name="">
+        </fieldset>
+        </form>
         <!-- 提交按钮 -->
         <div class="submit">
             <h4>提交</h4>

@@ -108,7 +108,8 @@
     text-align: center;
 }
 .clear,
-.reset{
+.reset,
+.additem{
     right: -60px;
     position: absolute;
     display: inline-block;
@@ -117,18 +118,22 @@
     cursor: pointer;
     color: #fff;
     text-align: center;
-    border-radius: 10%;
-    border:1px solid #c5c5c5;
-    font-size: 12px;
+    border-radius: 15%;
+    font-size: 13px;
     text-indent: 0;
 }
 .clear{
     bottom: 30px;
 }
-.reset{
+.reset,
+.additem{
     bottom: 0px;
 }
+.additem h4{
+    display: inline-block;
+}
 .table{
+    position: relative;
     font: 16px/1.5 sans-serif;
 }
 .table table{
@@ -147,7 +152,6 @@
 }
 .table table td input{
     width: 100%;
-    overflow-x:auto;
     text-align: center;
 }
 .table table td input[type='submit']{
