@@ -17,6 +17,10 @@ if (@$_GET['change']) {
     }
 } else if (@$_GET['delete']) {
     $query = "DELETE FROM `" . $_GET['formname'] . "` where `id`=" . $_GET['id'] . " limit 1";
+} else if (@$_GET['tchange']){
+    $link = connectDb('content');
+
+    $query = "UPDATE `secondaryinfo-text` SET `".$_GET['colname']."` = '" . $_GET['textinner'] . "'  where `protitle`=" . $_GET['protitle'] . " and `ind`=" . $_GET['ind'] . " limit 1";
 }
 execute($link, $query);
 echo '<script>window.close()</script>';

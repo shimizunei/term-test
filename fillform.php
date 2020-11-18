@@ -124,11 +124,20 @@ $link2 = connectDb('formcontent');
                         </div>";
                 }
             }
-            if ($arr[1]) {
+            function printButton($arr,$index){
                 echo "<div class='section'>";
-                echo "<div class='text'>$arr[1]</div>";
-                echo "<div class='textarea'contenteditable='true'>$arr[1]</div>";
-                echo "<div class='clear'>清空</div><div class='reset'>重置</div><div class='sub'>提交</div></div>";
+                echo "<div class='text'>$arr[$index]</div>";
+                echo "<div class='textarea'contenteditable='true'>$arr[$index]</div>";
+                echo "<div class='clear'>清空</div><div class='reset'>重置</div>
+                <form action='/form_temp.php' method='get' target='_blank'>
+                <input class='hide' type='text' name='formname' value=''>
+                <input class='hide' type='text' name='colname' value='col".($index-3)."'>
+                <input class='hide' type='text' name='textinner' value=''>
+                <input class='sub' type='submit' name='' value='修改'>
+                </form></div>";
+            }
+            if ($arr[1]) {
+                printButton($arr,1);
             }
             $num = count($arr); // 遍历mainifo
             for ($i = 2; $i < $num; $i++) {
@@ -145,17 +154,11 @@ $link2 = connectDb('formcontent');
                         $arrtext = mysqli_fetch_row($resulttext);
                         echo "<div class='subtitle'>" . ($i - 1) . "." . $arrtext[2] . "</div>";
                         if ($arrtext[3]) {
-                            echo "<div class='section'>";
-                            echo "<div class='text'>$arrtext[3]</div>";
-                            echo "<div class='textarea'contenteditable='true'>$arrtext[3]</div>";
-                            echo "<div class='clear'>清空</div><div class='reset'>重置</div><div class='sub'>提交</div></div>";
+                            printButton($arrtext,3);
                         }
                         for ($j = 4; $j < count($arrtext); $j++) {
                             if ($arrtext[$j]) {
-                                echo "<div class='section'>";
-                                echo "<div class='text'>$arrtext[$j]</div>";
-                                echo "<div class='textarea'contenteditable='true'>$arrtext[$j]</div>";
-                                echo "<div class='clear'>清空</div><div class='reset'>重置</div><div class='sub'>提交</div></div>";
+                                printButton($arrtext,$j);
                             } else
                                 break;
                         }
