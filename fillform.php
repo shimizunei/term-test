@@ -130,10 +130,11 @@ $link2 = connectDb('formcontent');
                 echo "<div class='textarea'contenteditable='true'>$arr[$index]</div>";
                 echo "<div class='clear'>清空</div><div class='reset'>重置</div>
                 <form action='/form_temp.php' method='get' target='_blank'>
-                <input class='hide' type='text' name='formname' value=''>
+                <input class='hide' type='text' name='protitle' value='$arr[0]'>
                 <input class='hide' type='text' name='colname' value='col".($index-3)."'>
+                <input class='hide' type='text' name='ind' value='".$arr[1]."'>
                 <input class='hide' type='text' name='textinner' value=''>
-                <input class='sub' type='submit' name='' value='修改'>
+                <input class='sub' type='submit' name='tchange' value='修改'>
                 </form></div>";
             }
             if ($arr[1]) {

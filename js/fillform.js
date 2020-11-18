@@ -4,7 +4,6 @@ window.onload = function () {
     var clears = document.querySelectorAll('.clear');
     var resets = document.querySelectorAll('.reset');
     var subs = document.querySelectorAll('.sub');
-    console.log(subs);
     for (var i = 0; i < texts.length; i++) {
         clears[i].addEventListener('click', function () {
             this.previousElementSibling.innerText = "";
