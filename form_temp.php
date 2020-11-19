@@ -6,8 +6,14 @@ session_start();
 if (!isset($_SESSION['admin'])) {
     Header("Location:/index.php");
 }
-$link = connectDb('formcontent');
 
+
+
+if ($_GET['formname'] === "maininfo" || $_GET['formname'] === "secondary-text") {
+    $link = connectDb('content');
+} else {
+    $link = connectDb('formcontent');
+}
 if (@$_GET['change']) {
     $query = "select * from `" . $_GET['formname'] . "` where `id`=" . $_GET['id'] . " limit 1";
     if (mysqli_fetch_row(execute($link, $query))) {
@@ -17,9 +23,12 @@ if (@$_GET['change']) {
     }
 } else if (@$_GET['delete']) {
     $query = "DELETE FROM `" . $_GET['formname'] . "` where `id`=" . $_GET['id'] . " limit 1";
-} else if (@$_GET['tchange']){
-    $link = connectDb('content');
-    $query = "UPDATE `secondaryinfo-text` SET `".$_GET['colname']."` = '" . $_GET['textinner'] . "'  where `protitle`='" . $_GET['protitle'] . "' and `ind`=" . $_GET['ind'] . " limit 1";
+} else if (@$_GET['tchange']) {
+    if ($_GET['formname'] === "secondary-text")
+        $query = "UPDATE `" . $_GET['formname'] . "` SET `" . $_GET['colname'] . "` = '" . $_GET['textinner'] . "'  where `protitle`='" . $_GET['protitle'] . "' and `ind`=" . $_GET['ind'] . " limit 1";
+    else {
+        $query = "UPDATE `" . $_GET['formname'] . "` SET `" . $_GET['colname'] . "` = '" . $_GET['textinner'] . "'  where `title`='" . $_GET['protitle'] . "'  limit 1";
+    }
 }
 execute($link, $query);
 echo '<script>window.close()</script>';

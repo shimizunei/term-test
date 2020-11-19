@@ -1,4 +1,7 @@
 <?php
+
+use function PHPSTORM_META\elementType;
+
 require_once './php/config.php';
 require_once './php/mysql_link.php';
 session_start();
@@ -29,7 +32,7 @@ $link2 = connectDb('formcontent');
 <body>
     <!-- 头部 -->
     <div class="header">
-        <div class="title"><a href="#">基层社区防灾减灾一掌通</a></div>
+        <div class="title"><a href="/main.php">基层社区防灾减灾一掌通</a></div>
         <div class="name">
             <?php
             // 设置name
@@ -43,11 +46,11 @@ $link2 = connectDb('formcontent');
         </div>
     </div>
     <!-- 索引栏 -->
-    <div class="index">
-    </div>
-    <!-- 进度条 -->
-    <div class="progressbar">
-    </div>
+    <!-- <div class="index">
+    </div> -->
+    <!-- 进度条  -->
+    <!-- <div class="progressbar">
+    </div> -->
     <!-- 主体 -->
     <div class="mbody">
         <div class="title ellipsis">
@@ -76,7 +79,7 @@ $link2 = connectDb('formcontent');
                         } else
                             break;
                     }
-                } else {
+                } else if ($arr[2] === 'content') {
                     $item = "";
                     $js = "";
                     for ($i = 5; $i < $num; $i++) {
@@ -86,7 +89,7 @@ $link2 = connectDb('formcontent');
                             break;
                     }
                     $create = "CREATE TABLE `formcontent`.`$arr[0]-$arr[3]` (`id` INT NOT NULL AUTO_INCREMENT," . $item
-                        . "PRIMARY KEY (`id`,`$arr[5]`));";
+                        . "PRIMARY KEY (`id`));";
                     // 创建表
                     // execute($link2, $create);
 
@@ -100,10 +103,56 @@ $link2 = connectDb('formcontent');
                     $js .= "data-formname='$arr[0]-$arr[3]' data-length=$length";
                     $item = "";
                     while ($arrxls = mysqli_fetch_row($resultxls)) {
-                        $item .= "<form action='/form_temp.php' method='get' target='_blank' data-id='$arrxls[0]'>";
+                        $item .= "<form action='/form_temp.php' method='get' target='_blank' data-id='$arrxls[0]' data-index=''>";
                         for ($i = 1; $i < $length; $i++) {
                             $temp = $arr[$i + 4];
-                            $item .= "<label for='$temp' >$temp</label><input type='text' value='$arrxls[$i]' name='$temp' id ='$temp' autocomplete='off' spellcheck='false'>";
+                            $item .= "<label for='$temp' >$temp</label><input type='text' value='$arrxls[$i]' name='$temp' id ='$temp' required='required' autocomplete='off' spellcheck='false'>";
+                        }
+                        $item .= "
+                                <input class='hide' type='text' name='id' value='$arrxls[0]'>
+                                <input class='hide' type='text' name='formname' value='$arr[0]-$arr[3]'>
+                                <input type='submit' name='change' value='修改'>
+                                <input type='submit' id='delete' name='delete' value='删除'>
+                                </form>";
+                    }
+                    echo " 
+                        <div class='form'>
+                        <fieldset>
+                            <legend>$arr[3]</legend>
+                            $item
+                        </fieldset>
+                        <div class='additem' $js><i></i>
+                            <h4>添加</h4>
+                        </div>
+                        </div>";
+                } else if ($arr[2] === 'table') {
+                    $item = "";
+                    $js = "";
+                    for ($i = 5; $i < $num; $i++) {
+                        if ($arr[$i]) {
+                            $item .= "`$arr[$i]` VARCHAR(45) NULL,";
+                        } else
+                            break;
+                    }
+                    $create = "CREATE TABLE `formcontent`.`$arr[0]-$arr[3]` (`id` INT NOT NULL AUTO_INCREMENT," . $item
+                        . "PRIMARY KEY (`id`));";
+                    // 创建表
+                    // execute($link2, $create);
+
+                    $length = $i - 4;
+
+                    $query = "select * from `$arr[0]-$arr[3]`";
+                    $resultxls = execute($link2, $query);
+                    for ($i = 1; $i < $length; $i++) {
+                        $js .= "data-item$i=" . $arr[$i + 4] . " ";
+                    }
+                    $js .= "data-formname='$arr[0]-$arr[3]' data-length=$length";
+                    $item = "";
+                    while ($arrxls = mysqli_fetch_row($resultxls)) {
+                        $item .= "<form action='/form_temp.php' method='get' target='_blank' data-id='$arrxls[0]' data-index=''>";
+                        for ($i = 1; $i < $length; $i++) {
+                            $temp = $arr[$i + 4];
+                            $item .= "<label for='$temp' >$temp</label><input type='text' value='$arrxls[$i]' name='$temp' id ='$temp' required='required' autocomplete='off' spellcheck='false'>";
                         }
                         $item .= "
                                 <input class='hide' type='text' name='id' value='$arrxls[0]'>
@@ -124,21 +173,30 @@ $link2 = connectDb('formcontent');
                         </div>";
                 }
             }
-            function printButton($arr,$index){
+            function printButton($arr, $index)
+            {
+                if ($index - 3 <= 0) {
+                    $col = 0;
+                    $formname = "maininfo";
+                } else {
+                    $col = $index - 3;
+                    $formname = "secondaryinfo-text";
+                }
                 echo "<div class='section'>";
                 echo "<div class='text'>$arr[$index]</div>";
                 echo "<div class='textarea'contenteditable='true'>$arr[$index]</div>";
                 echo "<div class='clear'>清空</div><div class='reset'>重置</div>
                 <form action='/form_temp.php' method='get' target='_blank'>
+                <input class='hide' type='text' name='formname' value='$formname'>
                 <input class='hide' type='text' name='protitle' value='$arr[0]'>
-                <input class='hide' type='text' name='colname' value='col".($index-3)."'>
-                <input class='hide' type='text' name='ind' value='".$arr[1]."'>
+                <input class='hide' type='text' name='colname' value='col" . $col . "'>
+                <input class='hide' type='text' name='ind' value='" . $arr[1] . "'>
                 <input class='hide' type='text' name='textinner' value=''>
                 <input class='sub' type='submit' name='tchange' value='修改'>
                 </form></div>";
             }
             if ($arr[1]) {
-                printButton($arr,1);
+                printButton($arr, 1);
             }
             $num = count($arr); // 遍历mainifo
             for ($i = 2; $i < $num; $i++) {
@@ -155,11 +213,11 @@ $link2 = connectDb('formcontent');
                         $arrtext = mysqli_fetch_row($resulttext);
                         echo "<div class='subtitle'>" . ($i - 1) . "." . $arrtext[2] . "</div>";
                         if ($arrtext[3]) {
-                            printButton($arrtext,3);
+                            printButton($arrtext, 3);
                         }
                         for ($j = 4; $j < count($arrtext); $j++) {
                             if ($arrtext[$j]) {
-                                printButton($arrtext,$j);
+                                printButton($arrtext, $j);
                             } else
                                 break;
                         }
@@ -168,8 +226,16 @@ $link2 = connectDb('formcontent');
                     break;
             }
             ?>
-        </div>
 
+        </div>
+            <form action="">
+                <table>
+                    <caption>社区（村）</caption>
+                    <tr><td>1</td><td>1</td><td>1</td></tr>
+                    <tr></tr>
+                    <tr></tr>
+                </table>
+            </form>
         <!-- 提交按钮 -->
         <div class="submit">
             <h4>提交</h4>

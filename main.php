@@ -26,7 +26,7 @@ $query = "select * from themename";
 <body>
     <!-- 头部 -->
     <div class="header">
-        <div class="title"><a href="#">基层社区防灾减灾一掌通</a></div>
+        <div class="title"><a href="/main.php">基层社区防灾减灾一掌通</a></div>
         <div class="name">
             <?php
             // 设置name

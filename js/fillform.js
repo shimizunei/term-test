@@ -37,7 +37,7 @@ window.onload = function () {
             var out = "<form action='/form_temp.php' method='get' target='_blank' data-id='" + id + "'>";
             for (var i = 1; i < this.dataset.length; i++) {
                 var temp = this.getAttribute("data-item" + i);
-                out += "<label for=''>" + temp + "</label><input type='text' value='' id='' name='" + temp + "' autocomplete='off' spellcheck='false'>";
+                out += "<label for=''>" + temp + "</label><input type='text' value='' id='' name='" + temp + "' required='required' autocomplete='off' spellcheck='false'>";
             }
             out += "<input class='hide' type='text' name='id' value='" + id + "'> <input class='hide' type='text' name='formname' value='" + this.dataset.formname + "'> <input type='submit' name='change' value='修改'> <input type='submit' id='delete' name='delete' value='删除'></form>"
             this.previousElementSibling.innerHTML += out;
