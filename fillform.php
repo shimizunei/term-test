@@ -127,9 +127,10 @@ $link2 = connectDb('formcontent');
                         </div>";
                 } else if ($arr[2] === 'table') {
                     $item = "";
-                    $js = "";
+                    $title = "";
                     for ($i = 5; $i < $num; $i++) {
                         if ($arr[$i]) {
+                            $title .= "<td>$arr[$i]</td>";
                             $item .= "`$arr[$i]` VARCHAR(45) NULL,";
                         } else
                             break;
@@ -140,37 +141,41 @@ $link2 = connectDb('formcontent');
                     // execute($link2, $create);
 
                     $length = $i - 4;
-
                     $query = "select * from `$arr[0]-$arr[3]`";
                     $resultxls = execute($link2, $query);
-                    for ($i = 1; $i < $length; $i++) {
-                        $js .= "data-item$i=" . $arr[$i + 4] . " ";
-                    }
-                    $js .= "data-formname='$arr[0]-$arr[3]' data-length=$length";
+                    // $js = "";
+                    // for ($i = 1; $i < $length; $i++) {
+                    //     $js .= "data-item$i=" . $arr[$i + 4] . " ";
+                    // }
+                    // $js .= "data-formname='$arr[0]-$arr[3]' data-length=$length";
                     $item = "";
                     while ($arrxls = mysqli_fetch_row($resultxls)) {
-                        $item .= "<form action='/form_temp.php' method='get' target='_blank' data-id='$arrxls[0]' data-index=''>";
+                        $item .= "<tr>";
                         for ($i = 1; $i < $length; $i++) {
                             $temp = $arr[$i + 4];
-                            $item .= "<label for='$temp' >$temp</label><input type='text' value='$arrxls[$i]' name='$temp' id ='$temp' required='required' autocomplete='off' spellcheck='false'>";
+                            $item .= "<td type='text' value='$arrxls[$i]' name='$temp' id ='$temp' required='required' autocomplete='off' spellcheck='false' contenteditable='true'>$arrxls[$i]</td>";
                         }
-                        $item .= "
+                        $item .= "<td>
                                 <input class='hide' type='text' name='id' value='$arrxls[0]'>
                                 <input class='hide' type='text' name='formname' value='$arr[0]-$arr[3]'>
                                 <input type='submit' name='change' value='修改'>
                                 <input type='submit' id='delete' name='delete' value='删除'>
-                                </form>";
+                                </td>
+                                </tr>";
                     }
                     echo " 
-                        <div class='form'>
-                        <fieldset>
-                            <legend>$arr[3]</legend>
+                        <form class='table' action='/form_temp.php' method='get' target='_blank'data-id='$arrxls[0]' data-index=''>
+                        <table>
+                            <caption>$arr[3]</caption>
+                            <tr>$title"."<td>操作</td>"."</tr>
                             $item
-                        </fieldset>
-                        <div class='additem' $js><i></i>
-                            <h4>添加</h4>
-                        </div>
-                        </div>";
+                            </table>
+                            ".""
+                        // <div class='additem' $js><i></i>
+                        //     <h4>添加</h4>
+                        // </div>
+                        ."
+                        </form>";
                 }
             }
             function printButton($arr, $index)
@@ -184,7 +189,7 @@ $link2 = connectDb('formcontent');
                 }
                 echo "<div class='section'>";
                 echo "<div class='text'>$arr[$index]</div>";
-                echo "<div class='textarea'contenteditable='true'>$arr[$index]</div>";
+                echo "<div class='textarea' contenteditable='true'>$arr[$index]</div>";
                 echo "<div class='clear'>清空</div><div class='reset'>重置</div>
                 <form action='/form_temp.php' method='get' target='_blank'>
                 <input class='hide' type='text' name='formname' value='$formname'>
@@ -228,14 +233,6 @@ $link2 = connectDb('formcontent');
             ?>
 
         </div>
-            <form action="">
-                <table>
-                    <caption>社区（村）</caption>
-                    <tr><td>1</td><td>1</td><td>1</td></tr>
-                    <tr></tr>
-                    <tr></tr>
-                </table>
-            </form>
         <!-- 提交按钮 -->
         <div class="submit">
             <h4>提交</h4>

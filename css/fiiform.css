@@ -145,7 +145,7 @@
 .additem h4{
     display: inline-block;
 }
-/* .table{
+.table{
     position: relative;
     font: 16px/1.5 sans-serif;
 }
@@ -171,7 +171,7 @@
     background-color: #fff;
     color: #1a8cfe;
     cursor: pointer;
-} */
+}
 .form{
     margin-bottom: 20px;
     position: relative;
