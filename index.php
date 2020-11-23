@@ -13,7 +13,7 @@ if(isset($_SESSION['admin']))
 
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/index.css">
-
+<!-- 从百度导入jquery -->
     <script src="https://cdn.staticfile.org/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script src="/js/index.js"></script>

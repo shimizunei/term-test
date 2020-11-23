@@ -53,6 +53,7 @@ $link2 = connectDb('formcontent');
     </div> -->
     <!-- 主体 -->
     <div class="mbody">
+        <!-- 标题 -->
         <div class="title ellipsis">
             <?php
             $query = "select * from maininfo where title='$_GET[formname]' limit 1";
@@ -61,9 +62,11 @@ $link2 = connectDb('formcontent');
             echo $_SESSION['username'] . $_GET['formname'];
             ?>
         </div>
+        <!-- 内容 -->
         <div class="content">
 
             <?php
+            // xls 遍历函数
             function xls($arr)
             {
                 global $link, $link2;
@@ -167,17 +170,18 @@ $link2 = connectDb('formcontent');
                         <form class='table' action='/form_temp.php' method='get' target='_blank'data-id='$arrxls[0]' data-index=''>
                         <table>
                             <caption>$arr[3]</caption>
-                            <tr>$title"."<td>操作</td>"."</tr>
+                            <tr>$title" . "<td>操作</td>" . "</tr>
                             $item
                             </table>
-                            ".""
+                            " . ""
                         // <div class='additem' $js><i></i>
                         //     <h4>添加</h4>
                         // </div>
-                        ."
+                        . "
                         </form>";
                 }
             }
+            // 打印 sections
             function printButton($arr, $index)
             {
                 if ($index - 3 <= 0) {
