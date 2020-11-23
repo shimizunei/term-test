@@ -184,7 +184,7 @@ body{
 }
 .contain{
     position: absolute;
-    left: 160px;
+    left: 130px;
     right: 0;
     top: 69px;
     bottom: 0;
@@ -198,4 +198,5 @@ body{
     right: 50px;
     left: 50px;
     z-index: -1;
+    overflow-x: auto;
 }
