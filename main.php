@@ -135,10 +135,27 @@ $query = "select * from themename";
                     <ul>
                         <?php
                         $result = execute($link, $query);
-                        while ($arr = mysqli_fetch_assoc($result)) {
-                            echo "<li><a href='/create-form.php?themename=$arr[theme]'><h4>$arr[theme]</h4></a></li>";
+                        while ($arr = mysqli_fetch_row($result)) {
+                            echo "<li><h4>$arr[1]</h4><div class='body-ineer'><dl>";
+                            $num = count($arr);
+                            for ($i = 2; $i < $num; $i++) {
+                                if ($arr[$i]) {
+                                    echo "<dd><a href='/create-form.php?formname=$arr[$i]'>$arr[$i]</a></dd>";
+                                }
+                            }
+                            echo "</dl></div></li>";
                         }
                         ?>
+                        <!-- <li>
+                            <h4>组织管理</h4>
+                            <div class="body-ineer">
+                                <dl>
+                                    <dd><a href=""></a> 123</dd>
+                                    <dd>123</dd>
+                                    <dd>123</dd>
+                                </dl>
+                            </div>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -159,8 +176,6 @@ $query = "select * from themename";
             </div>
         </div>
     </div>
-
-
 
 </body>
 

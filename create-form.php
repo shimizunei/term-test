@@ -133,6 +133,7 @@ $query = "select * from themename";
             $resultformname = execute($link, $queryformname);
             $arrformname = mysqli_fetch_row($resultformname);
             $num = count($arrformname);
+            // 类型和相应icon索引
             $index = array("doc" => "", "xls" => "", "jpg" => "");
             for ($i = 2; $i < $num; $i++) {
                 if ($arrformname[$i]) {

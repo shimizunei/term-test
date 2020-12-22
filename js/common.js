@@ -35,6 +35,7 @@ window.onload = function () {
             sideTurnFlag = true;
         }
     })
+    // 高亮当前页面的选项卡
     var pathName = window.document.location.pathname;
     var projectName = pathName.substring(1, pathName.substr(1).indexOf('.') + 1);
     var current = document.querySelector('.' + projectName).querySelector('.inner');
