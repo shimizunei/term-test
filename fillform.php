@@ -162,7 +162,6 @@ $link2 = connectDb('formcontent');
                                 <input class='hide' type='text' name='id' value='$arrxls[0]'>
                                 <input class='hide' type='text' name='formname' value='$arr[0]-$arr[3]'>
                                 <input type='submit' name='change' value='修改'>
-                                <input type='submit' id='delete' name='delete' value='删除'>
                                 </td>
                                 </tr>";
                     }
