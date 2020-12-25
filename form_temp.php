@@ -8,8 +8,7 @@ if (!isset($_SESSION['admin'])) {
 }
 
 
-
-if ($_GET['formname'] === "maininfo" || $_GET['formname'] === "secondary-text") {
+if ($_GET['formname'] === "maininfo" || $_GET['formname'] === "secondaryinfo-text") {
     $link = connectDb('content');
 } else {
     $link = connectDb('formcontent');
@@ -27,8 +26,9 @@ if (@$_GET['change']) {
     if ($_GET['formname'] === "secondary-text")
         $query = "UPDATE `" . $_GET['formname'] . "` SET `" . $_GET['colname'] . "` = '" . $_GET['textinner'] . "'  where `protitle`='" . $_GET['protitle'] . "' and `ind`=" . $_GET['ind'] . " limit 1";
     else {
-        $query = "UPDATE `" . $_GET['formname'] . "` SET `" . $_GET['colname'] . "` = '" . $_GET['textinner'] . "'  where `title`='" . $_GET['protitle'] . "'  limit 1";
+        $query = "UPDATE `$_GET[formname]` SET `" . $_GET['colname'] . "` = '" . $_GET['textinner'] . "'  where `title`='" . $_GET['protitle'] . "' and userid='" . $_SESSION['username'] . "'  limit 1";
     }
 }
+echo $query;
 execute($link, $query);
-echo '<script>window.close()</script>';
+// echo '<script>window.close()</script>';

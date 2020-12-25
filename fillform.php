@@ -56,10 +56,27 @@ $link2 = connectDb('formcontent');
         <!-- 标题 -->
         <div class="title ellipsis">
             <?php
-            $query = "select * from maininfo where title='$_GET[formname]' limit 1";
-            $result = execute($link, $query);
-            $arr = mysqli_fetch_row($result);
             echo $_SESSION['username'] . $_GET['formname'];
+            // 查库 未提交的表单
+            $query = "select * from maininfo where title='$_GET[formname]' and userid='$_SESSION[username]' and createtime=0  limit 1";
+            $result = execute($link, $query);
+            // 如果没有 新建
+            if(!$result->num_rows){
+                // 读模板
+                $query = "select * from maininfo where title='$_GET[formname]' limit 1";
+                $result = execute($link, $query);
+                $arr = mysqli_fetch_row($result);
+                // 复制
+                $insert ="insert into maininfo (title,userid,createtime,col0,col1,col2,col3,col4,col5,col6,col7,col8) values('$arr[0]','$_SESSION[username]','0','$arr[3]','$arr[4]','$arr[5]','$arr[6]','$arr[7]','$arr[8]','$arr[9]','$arr[10]','$arr[11]')";
+                execute($link, $insert);
+                // 连接
+                $query = "select * from maininfo where title='$_GET[formname]'and userid='$_SESSION[username]'  limit 1";
+                $result = execute($link, $query);
+                $arr = mysqli_fetch_row($result);
+            // 如果有 则用
+            }else {
+                $arr = mysqli_fetch_row($result);
+            }
             ?>
         </div>
         <!-- 内容 -->
@@ -183,11 +200,11 @@ $link2 = connectDb('formcontent');
             // 打印 sections
             function printButton($arr, $index)
             {
-                if ($index - 3 <= 0) {
+                if ($index - 5 <= 0) {
                     $col = 0;
                     $formname = "maininfo";
                 } else {
-                    $col = $index - 3;
+                    $col = $index - 5;
                     $formname = "secondaryinfo-text";
                 }
                 echo "<div class='section'>";
@@ -198,32 +215,33 @@ $link2 = connectDb('formcontent');
                 <input class='hide' type='text' name='formname' value='$formname'>
                 <input class='hide' type='text' name='protitle' value='$arr[0]'>
                 <input class='hide' type='text' name='colname' value='col" . $col . "'>
-                <input class='hide' type='text' name='ind' value='" . $arr[1] . "'>
+                <input class='hide' type='text' name='ind' value='" . $arr[3] . "'>
                 <input class='hide' type='text' name='textinner' value=''>
                 <input class='sub' type='submit' name='tchange' value='修改'>
                 </form></div>";
             }
-            if ($arr[1]) {
-                printButton($arr, 1);
+            if ($arr[3]) {
+                printButton($arr, 3);
             }
             $num = count($arr); // 遍历mainifo
-            for ($i = 2; $i < $num; $i++) {
-                if ($arr[$i]) { //还有项
+            for ($i = 4; $i < $num; $i++) {
+                if ($arr[$i]) {
+                    $arrind=$i-3; //还有项
                     if ($arr[$i] === 'xls') { //分类
-                        $query = "select * from `secondaryinfo-xls` where protitle='$_GET[formname]' and ind=" . ($i - 1) . " limit 1";
+                        $query = "select * from `secondaryinfo-xls` where protitle='$_GET[formname]' and ind=" . $arrind . " limit 1";
                         $resultxls = execute($link, $query);
                         $arrxls = mysqli_fetch_row($resultxls);
-                        echo "<div class='subtitle'>" . ($i - 1) . "." . $arrxls[3] . "</div>";
+                        echo "<div class='subtitle'>" . $arrind . "." . $arrxls[3] . "</div>";
                         xls($arrxls);
                     } else if ($arr[$i] === 'text') {
-                        $query = "select * from `secondaryinfo-text` where protitle='$_GET[formname]' and ind=" . ($i - 1) . " limit 1";
+                        $query = "select * from `secondaryinfo-text` where protitle='$_GET[formname]' and ind=" . $arrind . " limit 1";
                         $resulttext = execute($link, $query);
                         $arrtext = mysqli_fetch_row($resulttext);
-                        echo "<div class='subtitle'>" . ($i - 1) . "." . $arrtext[2] . "</div>";
-                        if ($arrtext[3]) {
-                            printButton($arrtext, 3);
+                        echo "<div class='subtitle'>" . $arrind . "." . $arrtext[4] . "</div>";
+                        if ($arrtext[5]) {
+                            printButton($arrtext, 5);
                         }
-                        for ($j = 4; $j < count($arrtext); $j++) {
+                        for ($j = 6; $j < count($arrtext); $j++) {
                             if ($arrtext[$j]) {
                                 printButton($arrtext, $j);
                             } else
